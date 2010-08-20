@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<model package="modextra" baseClass="xPDOObject" platform="mysql" defaultEngine="MyISAM" phpdoc-package="modextra">
+    <object class="modExtraItem" table="modextra_items" extends="xPDOSimpleObject">
+        <field key="name" dbtype="varchar" precision="100" phptype="string" null="false" default="" />
+        <field key="description" dbtype="text" phptype="text" null="false" default="" />        
+    </object>    
+</model>
