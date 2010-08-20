@@ -34,7 +34,7 @@ you've done that, you can create some System Settings:
 Then clear the cache. This will tell the Extra to look for the files located
 in these directories, allowing you to develop outside of the MODx webroot!
 
-## Informatiom
+## Information
 
 Note that if you git archive from this repository, you may not need all of its
 functionality. This Extra contains files and the setup to do the following:
