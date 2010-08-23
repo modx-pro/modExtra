@@ -48,3 +48,10 @@ appropriate code.
 
 Also, you'll want to change all the references of 'modExtra' to whatever the
 name of your component is.
+
+## Copyright Information
+
+modExtra is distributed as GPL (as MODx Revolution is), but the copyright owner
+(Shaun McCormick) grants all users of modExtra the ability to modify, distribute
+and use modExtra in MODx development as they see fit, as long as attribution
+is given somewhere in the distributed source of all derivative works.
