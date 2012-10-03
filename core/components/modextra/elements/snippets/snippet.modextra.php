@@ -25,17 +25,17 @@ $items = $modx->getCollection('modExtraItem',$c);
 /* iterate through items */
 $list = array();
 foreach ($items as $item) {
-    $itemArray = $item->toArray();
-    $list[] = $modExtra->getChunk($tpl,$itemArray);
+	$itemArray = $item->toArray();
+	$list[] = $modExtra->getChunk($tpl,$itemArray);
 }
 
 /* output */
 $output = implode($outputSeparator,$list);
 $toPlaceholder = $modx->getOption('toPlaceholder',$scriptProperties,false);
 if (!empty($toPlaceholder)) {
-    /* if using a placeholder, output nothing and set output to specified placeholder */
-    $modx->setPlaceholder($toPlaceholder,$output);
-    return '';
+	/* if using a placeholder, output nothing and set output to specified placeholder */
+	$modx->setPlaceholder($toPlaceholder,$output);
+	return '';
 }
 /* by default just return output */
 return $output;

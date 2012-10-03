@@ -10,11 +10,11 @@ $settings = array();
 /*
 $settings['gallery.']= $modx->newObject('modSystemSetting');
 $settings['gallery.']->fromArray(array(
-    'key' => 'gallery.',
-    'value' => '',
-    'xtype' => 'textfield',
-    'namespace' => 'gallery',
-    'area' => '',
+	'key' => 'gallery.',
+	'value' => '',
+	'xtype' => 'textfield',
+	'namespace' => 'gallery',
+	'area' => '',
 ),'',true,true);
 */
 

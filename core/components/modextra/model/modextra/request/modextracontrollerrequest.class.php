@@ -12,49 +12,49 @@ require_once MODX_CORE_PATH . 'model/modx/modrequest.class.php';
  * @extends modRequest
  */
 class modExtraControllerRequest extends modRequest {
-    public $modExtra = null;
-    public $actionVar = 'action';
-    public $defaultAction = 'home';
+	public $modExtra = null;
+	public $actionVar = 'action';
+	public $defaultAction = 'home';
 
-    function __construct(modExtra &$modExtra) {
-        parent :: __construct($modExtra->modx);
-        $this->modExtra =& $modExtra;
-    }
+	function __construct(modExtra &$modExtra) {
+		parent :: __construct($modExtra->modx);
+		$this->modExtra =& $modExtra;
+	}
 
-    /**
-     * Extends modRequest::handleRequest and loads the proper error handler and
-     * actionVar value.
-     *
-     * {@inheritdoc}
-     */
-    public function handleRequest() {
-        $this->loadErrorHandler();
+	/**
+	 * Extends modRequest::handleRequest and loads the proper error handler and
+	 * actionVar value.
+	 *
+	 * {@inheritdoc}
+	 */
+	public function handleRequest() {
+		$this->loadErrorHandler();
 
-        /* save page to manager object. allow custom actionVar choice for extending classes. */
-        $this->action = isset($_REQUEST[$this->actionVar]) ? $_REQUEST[$this->actionVar] : $this->defaultAction;
+		/* save page to manager object. allow custom actionVar choice for extending classes. */
+		$this->action = isset($_REQUEST[$this->actionVar]) ? $_REQUEST[$this->actionVar] : $this->defaultAction;
 
-        return $this->_respond();
-    }
+		return $this->_respond();
+	}
 
-    /**
-     * Prepares the MODx response to a mgr request that is being handled.
-     *
-     * @access public
-     * @return boolean True if the response is properly prepared.
-     */
-    private function _respond() {
-        $modx =& $this->modx;
-        $modExtra =& $this->modExtra;
+	/**
+	 * Prepares the MODx response to a mgr request that is being handled.
+	 *
+	 * @access public
+	 * @return boolean True if the response is properly prepared.
+	 */
+	private function _respond() {
+		$modx =& $this->modx;
+		$modExtra =& $this->modExtra;
 
-        $viewHeader = include $this->modExtra->config['corePath'].'controllers/mgr/header.php';
+		$viewHeader = include $this->modExtra->config['corePath'].'controllers/mgr/header.php';
 
-        $f = $this->modExtra->config['corePath'].'controllers/mgr/'.$this->action.'.php';
-        if (file_exists($f)) {
-            $viewOutput = include $f;
-        } else {
-            $viewOutput = 'Action not found: '.$f;
-        }
+		$f = $this->modExtra->config['corePath'].'controllers/mgr/'.$this->action.'.php';
+		if (file_exists($f)) {
+			$viewOutput = include $f;
+		} else {
+			$viewOutput = 'Action not found: '.$f;
+		}
 
-        return $viewHeader.$viewOutput;
-    }
+		return $viewHeader.$viewOutput;
+	}
 }
