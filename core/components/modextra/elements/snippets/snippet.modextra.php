@@ -4,7 +4,7 @@
  *
  * @package modextra
  */
-$modExtra = $modx->getService('modextra','modExtra',$modx->getOption('modextra.core_path',null,$modx->getOption('core_path').'components/modextra/').'model/modextra/',$scriptProperties);
+$modExtra = $modx->getService('modextra','modExtra',$modx->getOption('modextra_core_path',null,$modx->getOption('core_path').'components/modextra/').'model/modextra/',$scriptProperties);
 if (!($modExtra instanceof modExtra)) return '';
 
 /**

@@ -8,13 +8,13 @@
 require_once dirname(__FILE__) . '/model/modextra/modextra.class.php';
 
 abstract class modExtraMainController extends modExtraManagerController {
-	/** @var modExtra $modextra */
-	public $modextra;
+	/** @var modExtra $modExtra */
+	public $modExtra;
 
 	public function initialize() {
 		$this->modExtra = new modExtra($this->modx);
 		
-		$this->modx->regClientCSS($this->modExtra->config['cssUrl'].'mgr.css');
+		$this->modx->regClientCSS($this->modExtra->config['cssUrl'].'mgr/main.css');
 		$this->modx->regClientStartupScript($this->modExtra->config['jsUrl'].'mgr/modextra.js');
 		$this->modx->regClientStartupHTMLBlock('<script type="text/javascript">
 		Ext.onReady(function() {
@@ -23,7 +23,7 @@ abstract class modExtraMainController extends modExtraManagerController {
 		});
 		</script>');
 		
-		return parent::initialize();
+		parent::initialize();
 	}
 
 	public function getLanguageTopics() {
@@ -32,6 +32,7 @@ abstract class modExtraMainController extends modExtraManagerController {
 
 	public function checkPermissions() { return true;}
 }
+
 
 class IndexManagerController extends modExtraMainController {
 	public static function getDefaultController() { return 'home'; }

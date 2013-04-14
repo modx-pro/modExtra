@@ -6,9 +6,9 @@
  * @subpackage processors
  */
 class modExtraItemGetProcessor extends modObjectGetProcessor {
+	public $objectType = 'modExtraItem';
 	public $classKey = 'modExtraItem';
 	public $languageTopics = array('modextra:default');
-	public $objectType = 'modextra';
 }
 
 return 'modExtraItemGetProcessor';

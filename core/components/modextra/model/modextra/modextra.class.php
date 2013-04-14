@@ -4,34 +4,43 @@
  *
  * @package modextra
  */
+
 class modExtra {
+	/* @var modX $modx */
+	public $modx;
+	/* @var modExtraControllerRequest $request */
+	protected $request;
+	public $initialized = array();
+
+
 	function __construct(modX &$modx,array $config = array()) {
 		$this->modx =& $modx;
 
-		$corePath = $this->modx->getOption('modextra.core_path',$config,$this->modx->getOption('core_path').'components/modextra/');
-		$assetsUrl = $this->modx->getOption('modextra.assets_url',$config,$this->modx->getOption('assets_url').'components/modextra/');
+		$corePath = $this->modx->getOption('modextra_core_path', $config, $this->modx->getOption('core_path').'components/modextra/');
+		$assetsUrl = $this->modx->getOption('modextra_assets_url', $config, $this->modx->getOption('assets_url').'components/modextra/');
 		$connectorUrl = $assetsUrl.'connector.php';
 
 		$this->config = array_merge(array(
-			'assetsUrl' => $assetsUrl,
-			'cssUrl' => $assetsUrl.'css/',
-			'jsUrl' => $assetsUrl.'js/',
-			'imagesUrl' => $assetsUrl.'images/',
+			'assetsUrl' => $assetsUrl
+			,'cssUrl' => $assetsUrl.'css/'
+			,'jsUrl' => $assetsUrl.'js/'
+			,'imagesUrl' => $assetsUrl.'images/'
 
-			'connectorUrl' => $connectorUrl,
+			,'connectorUrl' => $connectorUrl
 
-			'corePath' => $corePath,
-			'modelPath' => $corePath.'model/',
-			'chunksPath' => $corePath.'elements/chunks/',
-			'templatesPath' => $corePath.'elements/templates/',
-			'chunkSuffix' => '.chunk.tpl',
-			'snippetsPath' => $corePath.'elements/snippets/',
-			'processorsPath' => $corePath.'processors/',
+			,'corePath' => $corePath
+			,'modelPath' => $corePath.'model/'
+			,'chunksPath' => $corePath.'elements/chunks/'
+			,'templatesPath' => $corePath.'elements/templates/'
+			,'chunkSuffix' => '.chunk.tpl'
+			,'snippetsPath' => $corePath.'elements/snippets/'
+			,'processorsPath' => $corePath.'processors/'
 		),$config);
 
-		$this->modx->addPackage('modextra',$this->config['modelPath']);
+		$this->modx->addPackage('modextra', $this->config['modelPath']);
 		$this->modx->lexicon->load('modextra:default');
 	}
+
 
 	/**
 	 * Initializes modExtra into different contexts.
@@ -42,18 +51,14 @@ class modExtra {
 	public function initialize($ctx = 'web') {
 		switch ($ctx) {
 			case 'mgr':
-				if (!$this->modx->loadClass('modextra.request.modExtraControllerRequest',$this->config['modelPath'],true,true)) {
+				if (!$this->modx->loadClass('modextra.request.modExtraControllerRequest', $this->config['modelPath'], true, true)) {
 					return 'Could not load controller request handler.';
 				}
 				$this->request = new modExtraControllerRequest($this);
 				return $this->request->handleRequest();
 			break;
-			case 'connector':
-				if (!$this->modx->loadClass('modextra.request.modExtraConnectorRequest',$this->config['modelPath'],true,true)) {
-					return 'Could not load connector request handler.';
-				}
-				$this->request = new modExtraConnectorRequest($this);
-				return $this->request->handle();
+			case 'web':
+
 			break;
 			default:
 				/* if you wanted to do any generic frontend stuff here.
@@ -65,6 +70,7 @@ class modExtra {
 			break;
 		}
 	}
+
 
 	/**
 	 * Gets a Chunk and caches it; also falls back to file-based templates
@@ -92,6 +98,8 @@ class modExtra {
 		$chunk->setCacheable(false);
 		return $chunk->process($properties);
 	}
+
+
 	/**
 	 * Returns a modChunk object from a template file.
 	 *
@@ -112,4 +120,5 @@ class modExtra {
 		}
 		return $chunk;
 	}
+
 }

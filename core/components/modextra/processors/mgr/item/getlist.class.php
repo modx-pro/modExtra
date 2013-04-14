@@ -6,6 +6,7 @@
  * @subpackage processors
  */
 class modExtraItemGetListProcessor extends modObjectGetListProcessor {
+	public $objectType = 'modExtraItem';
 	public $classKey = 'modExtraItem';
 	public $defaultSortField = 'id';
 	public $defaultSortDirection  = 'DESC';

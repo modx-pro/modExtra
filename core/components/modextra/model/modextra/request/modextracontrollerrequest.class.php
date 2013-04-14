@@ -2,7 +2,9 @@
 /**
  * @package modextra
  */
+
 require_once MODX_CORE_PATH . 'model/modx/modrequest.class.php';
+
 /**
  * Encapsulates the interaction of MODx manager with an HTTP request.
  *
@@ -21,6 +23,7 @@ class modExtraControllerRequest extends modRequest {
 		$this->modExtra =& $modExtra;
 	}
 
+
 	/**
 	 * Extends modRequest::handleRequest and loads the proper error handler and
 	 * actionVar value.
@@ -35,6 +38,7 @@ class modExtraControllerRequest extends modRequest {
 
 		return $this->_respond();
 	}
+
 
 	/**
 	 * Prepares the MODx response to a mgr request that is being handled.
@@ -57,4 +61,5 @@ class modExtraControllerRequest extends modRequest {
 
 		return $viewHeader.$viewOutput;
 	}
+
 }

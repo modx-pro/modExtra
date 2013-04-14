@@ -15,9 +15,9 @@ modExtra.panel.Home = function(config) {
 			,activeItem: 0
 			,hideMode: 'offsets'
 			,items: [{
-				title: _('modextra.items')
+				title: _('modextra_items')
 				,items: [{
-					html: _('modextra.intro_msg')
+					html: _('modextra_intro_msg')
 					,border: false
 					,bodyCssClass: 'panel-desc'
 					,bodyStyle: 'margin-bottom: 10px'

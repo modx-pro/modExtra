@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<model package="modextra" baseClass="xPDOObject" platform="mysql" defaultEngine="MyISAM" phpdoc-package="modextra">
+<model package="modextra" baseClass="xPDOObject" platform="mysql" defaultEngine="MyISAM" phpdoc-package="modextra" version="1.1">
+
 	<object class="modExtraItem" table="modextra_items" extends="xPDOSimpleObject">
 		<field key="name" dbtype="varchar" precision="100" phptype="string" null="false" default="" />
-		<field key="description" dbtype="text" phptype="text" null="false" default="" />        
-	</object>    
+		<field key="description" dbtype="text" phptype="text" null="true" default="" />
+
+		<index alias="name" name="name" primary="false" unique="false" type="BTREE">
+			<column key="name" length="" collation="A" null="false" />
+		</index>
+	</object>
+
 </model>
