@@ -23,8 +23,9 @@ foreach ($tmp as $k => $v) {
 		,'name' => $k
 		,'description' => @$v['description']
 		,'snippet' => getSnippetContent($sources['source_core'].'/elements/snippets/snippet.'.$v['file'].'.php')
-		//,'static' => 1
-		//,'static_file' => 'core/components/modextra/elements/snippets/'.$v['file'].'.php'
+		,'static' => BUILD_SNIPPET_STATIC
+		,'source' => 1
+		,'static_file' => 'core/components/'.PKG_NAME_LOWER.'/elements/snippets/'.$v['file'].'.php'
 	),'',true,true);
 
 	$properties = include $sources['build'].'properties/properties.'.$v['file'].'.php';
