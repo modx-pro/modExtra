@@ -1,10 +1,4 @@
 <?php
-/**
- * Properties for the modExtra snippet.
- *
- * @package modextra
- * @subpackage build
- */
 
 $properties = array();
 

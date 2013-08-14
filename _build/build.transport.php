@@ -1,10 +1,5 @@
 <?php
-/**
- * modExtra build script
- *
- * @package modextra 
- * @subpackage build
- */
+
 $mtime = microtime();
 $mtime = explode(' ', $mtime);
 $mtime = $mtime[1] + $mtime[0];
@@ -165,7 +160,6 @@ if (defined('BUILD_MENU_UPDATE')) {
 $modx->log(xPDO::LOG_LEVEL_INFO,'Created category.');
 /* @var modCategory $category */
 $category= $modx->newObject('modCategory');
-$category->set('id',1);
 $category->set('category',PKG_NAME);
 /* create category vehicle */
 $attr = array(
@@ -235,8 +229,7 @@ $vehicle->resolve('file',array(
 	'target' => "return MODX_CORE_PATH . 'components/';",
 ));
 
-$resolvers = array('tables');
-foreach ($resolvers as $resolver) {
+foreach ($BUILD_RESOLVERS as $resolver) {
 	if ($vehicle->resolve('php', array('source' => $sources['resolvers'] . 'resolve.'.$resolver.'.php'))) {
 		$modx->log(modX::LOG_LEVEL_INFO,'Added resolver "'.$resolver.'" to category.');
 	}

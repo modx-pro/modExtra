@@ -1,10 +1,4 @@
 <?php
-/**
- * Add chunks to build
- * 
- * @package modextra
- * @subpackage build
- */
 
 $chunks = array();
 

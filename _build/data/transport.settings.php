@@ -1,10 +1,5 @@
 <?php
-/**
- * Loads system settings into build
- *
- * @package modextra
- * @subpackage build
- */
+
 $settings = array();
 
 $tmp = array(
@@ -21,7 +16,7 @@ foreach ($tmp as $k => $v) {
 	$setting->fromArray(array_merge(
 		array(
 			'key' => 'modextra_'.$k
-			,'namespace' => 'modextra'
+			,'namespace' => PKG_NAME_LOWER.':default'
 		), $v
 	),'',true,true);
 

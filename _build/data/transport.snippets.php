@@ -1,10 +1,4 @@
 <?php
-/**
- * Add snippets to build
- * 
- * @package modextra
- * @subpackage build
- */
 
 $snippets = array();
 

@@ -1,7 +1,5 @@
 <?php
-/**
- * @package modextra
- */
+
 
 require_once MODX_CORE_PATH . 'model/modx/modrequest.class.php';
 
@@ -9,15 +7,16 @@ require_once MODX_CORE_PATH . 'model/modx/modrequest.class.php';
  * Encapsulates the interaction of MODx manager with an HTTP request.
  *
  * {@inheritdoc}
- *
- * @package modextra
- * @extends modRequest
  */
 class modExtraControllerRequest extends modRequest {
 	public $modExtra = null;
 	public $actionVar = 'action';
 	public $defaultAction = 'home';
 
+
+	/**
+	 * @param modExtra $modExtra
+	 */
 	function __construct(modExtra &$modExtra) {
 		parent :: __construct($modExtra->modx);
 		$this->modExtra =& $modExtra;
@@ -34,7 +33,9 @@ class modExtraControllerRequest extends modRequest {
 		$this->loadErrorHandler();
 
 		/* save page to manager object. allow custom actionVar choice for extending classes. */
-		$this->action = isset($_REQUEST[$this->actionVar]) ? $_REQUEST[$this->actionVar] : $this->defaultAction;
+		$this->action = isset($_REQUEST[$this->actionVar])
+			? $_REQUEST[$this->actionVar]
+			: $this->defaultAction;
 
 		return $this->_respond();
 	}
@@ -50,16 +51,17 @@ class modExtraControllerRequest extends modRequest {
 		$modx =& $this->modx;
 		$modExtra =& $this->modExtra;
 
-		$viewHeader = include $this->modExtra->config['corePath'].'controllers/mgr/header.php';
+		$viewHeader = include $this->modExtra->config['corePath'] . 'controllers/mgr/header.php';
 
-		$f = $this->modExtra->config['corePath'].'controllers/mgr/'.$this->action.'.php';
+		$f = $this->modExtra->config['corePath'] . 'controllers/mgr/' . $this->actionVar . '.php';
 		if (file_exists($f)) {
 			$viewOutput = include $f;
-		} else {
-			$viewOutput = 'Action not found: '.$f;
+		}
+		else {
+			$viewOutput = 'Action not found: ' . $f;
 		}
 
-		return $viewHeader.$viewOutput;
+		return $viewHeader . $viewOutput;
 	}
 
 }

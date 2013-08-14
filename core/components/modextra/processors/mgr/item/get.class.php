@@ -1,9 +1,6 @@
 <?php
 /**
  * Get an Item
- * 
- * @package modextra
- * @subpackage processors
  */
 class modExtraItemGetProcessor extends modObjectGetProcessor {
 	public $objectType = 'modExtraItem';

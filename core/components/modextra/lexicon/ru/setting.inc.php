@@ -1,10 +1,4 @@
 <?php
-/**
- * Settings Russian Lexicon Entries for modExtra
- *
- * @package modextra
- * @subpackage lexicon
- */
 
 $_lang['area_modextra_main'] = 'Основные';
 

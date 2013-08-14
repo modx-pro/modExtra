@@ -1,10 +1,4 @@
 <?php
-/**
- * Default English Lexicon Entries for modExtra
- *
- * @package modextra
- * @subpackage lexicon
- */
 
 include_once 'setting.inc.php';
 

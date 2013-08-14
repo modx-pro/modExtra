@@ -1,9 +1,5 @@
 <?php
-/**
- * The base modExtra snippet.
- *
- * @package modextra
- */
+
 $modExtra = $modx->getService('modextra','modExtra',$modx->getOption('modextra_core_path',null,$modx->getOption('core_path').'components/modextra/').'model/modextra/',$scriptProperties);
 if (!($modExtra instanceof modExtra)) return '';
 
@@ -24,6 +20,7 @@ $items = $modx->getCollection('modExtraItem',$c);
 
 /* iterate through items */
 $list = array();
+/* @var modExtraItem $item */
 foreach ($items as $item) {
 	$itemArray = $item->toArray();
 	$list[] = $modExtra->getChunk($tpl,$itemArray);

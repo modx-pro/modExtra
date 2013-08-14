@@ -1,10 +1,5 @@
 <?php
-/**
- * Properties English Lexicon Entries for modExtra
- *
- * @package modextra
- * @subpackage lexicon
- */
+
 $_lang['modextra_prop_limit'] = 'The number of Items to limit per page.';
 $_lang['modextra_prop_outputSeparator'] = 'A string to separate each row with.';
 $_lang['modextra_prop_sortBy'] = 'The field to sort by.';

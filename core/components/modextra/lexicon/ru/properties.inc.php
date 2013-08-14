@@ -1,10 +1,5 @@
 <?php
-/**
- * Properties Russian Lexicon Entries for modExtra
- *
- * @package modextra
- * @subpackage lexicon
- */
+
 $_lang['modextra_prop_limit'] = 'Ограничение вывода Предметов на странице.';
 $_lang['modextra_prop_outputSeparator'] = 'Разделитель вывода строк.';
 $_lang['modextra_prop_sortBy'] = 'Поле сортировки.';
