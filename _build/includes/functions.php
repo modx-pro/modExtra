@@ -6,7 +6,7 @@
  * @return string
  */
 function getSnippetContent($filename) {
-	$o = file_get_contents($filename);
-	$o = trim(str_replace(array('<?php','?>'),'',$o));
-	return $o;
+	$file = trim(file_get_contents($filename));
+    preg_match('#\<\?php(.*)#is',$file,$data);
+    return rtrim(rtrim(trim($data[1]),'?>'));
 }
