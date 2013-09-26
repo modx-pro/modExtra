@@ -302,7 +302,10 @@ if (defined('PKG_AUTO_INSTALL') && PKG_AUTO_INSTALL) {
 		}
 		$package->save();
 	}
-	$package->install();
+
+	if ($package->install()) {
+		$modx->runProcessor('system/clearcache');
+	}
 }
 
 $modx->log(modX::LOG_LEVEL_INFO,"\n<br />Execution time: {$totalTime}\n");
