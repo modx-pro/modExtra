@@ -29,9 +29,13 @@ $generator = $manager->getGenerator();
 $generator->parseSchema($xml, $Model);
 $modx->addPackage($package, $Model);
 
-//$manager->removeObjectContainer('modExtraItem');
-
-//$manager->createObjectContainer('modExtraItem');
+$objects = array(
+	'modExtraItem',
+);
+foreach ($objects as $object) {
+	//$manager->removeObjectContainer($object);
+	//$manager->createObjectContainer($object);
+}
 
 print "\nDone\n";
 

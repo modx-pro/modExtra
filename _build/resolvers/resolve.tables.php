@@ -10,7 +10,12 @@ if ($object->xpdo) {
 			$modx->addPackage('modextra', $modelPath);
 
 			$manager = $modx->getManager();
-			$manager->createObjectContainer('modExtraItem');
+			$objects = array(
+				'modExtraItem',
+			);
+			foreach ($objects as $object) {
+				$manager->createObjectContainer($object);
+			}
 			break;
 
 		case xPDOTransport::ACTION_UPGRADE:
