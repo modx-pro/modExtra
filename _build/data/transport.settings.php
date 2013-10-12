@@ -16,7 +16,7 @@ foreach ($tmp as $k => $v) {
 	$setting->fromArray(array_merge(
 		array(
 			'key' => 'modextra_'.$k,
-			'namespace' => PKG_NAME_LOWER.':default',
+			'namespace' => PKG_NAME_LOWER,
 		), $v
 	),'',true,true);
 
