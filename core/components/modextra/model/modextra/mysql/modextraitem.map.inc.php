@@ -1,10 +1,9 @@
 <?php
-/**
- * @package modextra
- */
 $xpdo_meta_map['modExtraItem']= array (
   'package' => 'modextra',
+  'version' => '1.1',
   'table' => 'modextra_items',
+  'extends' => 'xPDOSimpleObject',
   'fields' => 
   array (
     'name' => '',
@@ -24,8 +23,27 @@ $xpdo_meta_map['modExtraItem']= array (
     array (
       'dbtype' => 'text',
       'phptype' => 'text',
-      'null' => false,
+      'null' => true,
       'default' => '',
+    ),
+  ),
+  'indexes' => 
+  array (
+    'name' => 
+    array (
+      'alias' => 'name',
+      'primary' => false,
+      'unique' => false,
+      'type' => 'BTREE',
+      'columns' => 
+      array (
+        'name' => 
+        array (
+          'length' => '',
+          'collation' => 'A',
+          'null' => false,
+        ),
+      ),
     ),
   ),
 );

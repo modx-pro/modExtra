@@ -6,10 +6,13 @@ define('PKG_NAME_LOWER', strtolower(PKG_NAME));
 
 define('PKG_VERSION', '0.0.1');
 define('PKG_RELEASE', 'beta');
-define('PKG_AUTO_INSTALL', true);
+define('PKG_AUTO_INSTALL', false);
 
 /* define paths */
-if (file_exists(dirname(dirname(dirname(__FILE__))) . '/core')) {
+if (isset($_SERVER['MODX_BASE_PATH'])) {
+	define('MODX_BASE_PATH', $_SERVER['MODX_BASE_PATH']);
+}
+elseif (file_exists(dirname(dirname(dirname(__FILE__))) . '/core')) {
 	define('MODX_BASE_PATH', dirname(dirname(dirname(__FILE__))) . '/');
 }
 else {

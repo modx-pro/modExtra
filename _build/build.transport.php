@@ -7,6 +7,10 @@ $tstart = $mtime;
 set_time_limit(0);
 
 require_once 'build.config.php';
+// Refresh model
+if (file_exists('build.model.php')) {
+	require_once 'build.model.php';
+}
 
 /* define sources */
 $root = dirname(dirname(__FILE__)).'/';
@@ -31,15 +35,16 @@ require_once $sources['build'] . '/includes/functions.php';
 
 $modx= new modX();
 $modx->initialize('mgr');
-echo '<pre>'; /* used for nice formatting of log messages */
 $modx->setLogLevel(modX::LOG_LEVEL_INFO);
-$modx->setLogTarget('ECHO');
+$modx->setLogTarget(XPDO_CLI_MODE ? 'ECHO' : 'HTML');
 $modx->getService('error','error.modError');
-
 $modx->loadClass('transport.modPackageBuilder','',false, true);
+
 $builder = new modPackageBuilder($modx);
 $builder->createPackage(PKG_NAME_LOWER,PKG_VERSION,PKG_RELEASE);
 $builder->registerNamespace(PKG_NAME_LOWER,false,true,'{core_path}components/'.PKG_NAME_LOWER.'/');
+
+if (!XPDO_CLI_MODE) {echo '<pre>';}
 $modx->log(modX::LOG_LEVEL_INFO,'Created Transport Package and Namespace.');
 
 /* load system settings */
@@ -310,4 +315,4 @@ if (defined('PKG_AUTO_INSTALL') && PKG_AUTO_INSTALL) {
 }
 
 $modx->log(modX::LOG_LEVEL_INFO,"\n<br />Execution time: {$totalTime}\n");
-echo '</pre>';
+if (!XPDO_CLI_MODE) {echo '/<pre>';}
