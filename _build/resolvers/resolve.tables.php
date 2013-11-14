@@ -13,8 +13,8 @@ if ($object->xpdo) {
 			$objects = array(
 				'modExtraItem',
 			);
-			foreach ($objects as $object) {
-				$manager->createObjectContainer($object);
+			foreach ($objects as $tmp) {
+				$manager->createObjectContainer($tmp);
 			}
 			break;
 
