@@ -1,7 +1,5 @@
 <?php
 
-require_once dirname(__FILE__) . '/model/modextra/modextra.class.php';
-
 /**
  * Class modExtraMainController
  */
@@ -14,6 +12,9 @@ abstract class modExtraMainController extends modExtraManagerController {
 	 * @return void
 	 */
 	public function initialize() {
+		$corePath = $this->modx->getOption('modextra_core_path', null, $this->modx->getOption('core_path') . 'components/modextra/');
+		require_once $corePath . 'model/sendex/sendex.class.php';
+
 		$this->modExtra = new modExtra($this->modx);
 
 		$this->modx->regClientCSS($this->modExtra->config['cssUrl'] . 'mgr/main.css');
