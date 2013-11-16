@@ -30,6 +30,11 @@ class modExtraHomeManagerController extends modExtraMainController {
 		$this->addJavascript($this->modExtra->config['jsUrl'] . 'mgr/widgets/items.grid.js');
 		$this->addJavascript($this->modExtra->config['jsUrl'] . 'mgr/widgets/home.panel.js');
 		$this->addJavascript($this->modExtra->config['jsUrl'] . 'mgr/sections/home.js');
+		$this->addHtml('<script type="text/javascript">
+		Ext.onReady(function() {
+			MODx.load({ xtype: "modextra-page-home"});
+		});
+		</script>');
 	}
 
 

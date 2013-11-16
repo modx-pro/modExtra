@@ -1,7 +1,3 @@
-Ext.onReady(function() {
-	MODx.load({ xtype: 'modextra-page-home'});
-});
-
 modExtra.page.Home = function(config) {
 	config = config || {};
 	Ext.applyIf(config,{
