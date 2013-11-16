@@ -27,9 +27,9 @@ class modExtraHomeManagerController extends modExtraMainController {
 	 * @return void
 	 */
 	public function loadCustomCssJs() {
-		$this->modx->regClientStartupScript($this->modExtra->config['jsUrl'] . 'mgr/widgets/items.grid.js');
-		$this->modx->regClientStartupScript($this->modExtra->config['jsUrl'] . 'mgr/widgets/home.panel.js');
-		$this->modx->regClientStartupScript($this->modExtra->config['jsUrl'] . 'mgr/sections/home.js');
+		$this->addJavascript($this->modExtra->config['jsUrl'] . 'mgr/widgets/items.grid.js');
+		$this->addJavascript($this->modExtra->config['jsUrl'] . 'mgr/widgets/home.panel.js');
+		$this->addJavascript($this->modExtra->config['jsUrl'] . 'mgr/sections/home.js');
 	}
 
 
