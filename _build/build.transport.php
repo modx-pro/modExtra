@@ -42,7 +42,7 @@ $modx->loadClass('transport.modPackageBuilder','',false, true);
 
 $builder = new modPackageBuilder($modx);
 $builder->createPackage(PKG_NAME_LOWER,PKG_VERSION,PKG_RELEASE);
-$builder->registerNamespace(PKG_NAME_LOWER,false,true,'{core_path}components/'.PKG_NAME_LOWER.'/');
+$builder->registerNamespace(PKG_NAME_LOWER,false,true,PKG_NAMESPACE_PATH);
 
 if (!XPDO_CLI_MODE) {echo '<pre>';}
 $modx->log(modX::LOG_LEVEL_INFO,'Created Transport Package and Namespace.');
