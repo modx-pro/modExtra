@@ -19,7 +19,7 @@ abstract class modExtraMainController extends modExtraManagerController {
 
 		$this->addCss($this->modExtra->config['cssUrl'] . 'mgr/main.css');
 		$this->addJavascript($this->modExtra->config['jsUrl'] . 'mgr/modextra.js');
-		$this->addJavascript('<script type="text/javascript">
+		$this->addHtml('<script type="text/javascript">
 		Ext.onReady(function() {
 			modExtra.config = ' . $this->modx->toJSON($this->modExtra->config) . ';
 			modExtra.config.connector_url = "' . $this->modExtra->config['connectorUrl'] . '";
