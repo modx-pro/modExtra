@@ -13,7 +13,7 @@ abstract class modExtraMainController extends modExtraManagerController {
 	 */
 	public function initialize() {
 		$corePath = $this->modx->getOption('modextra_core_path', null, $this->modx->getOption('core_path') . 'components/modextra/');
-		require_once $corePath . 'model/sendex/sendex.class.php';
+		require_once $corePath . 'model/modextra/modextra.class.php';
 
 		$this->modExtra = new modExtra($this->modx);
 
