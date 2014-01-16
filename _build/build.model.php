@@ -1,5 +1,7 @@
 <?php
-require 'build.config.php';
+if (!defined('MODX_BASE_PATH')) {
+	require 'build.config.php';
+}
 
 /* define sources */
 $root = dirname(dirname(__FILE__)).'/';
