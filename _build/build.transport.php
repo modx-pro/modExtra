@@ -16,13 +16,13 @@ if (file_exists('build.model.php')) {
 $root = dirname(dirname(__FILE__)).'/';
 $sources = array(
 	'root' => $root,
-	'build' => $root . '_build/',
-	'data' => $root . '_build/data/',
-	'resolvers' => $root . '_build/resolvers/',
+	'build' => $root.'_build/',
+	'data' => $root.'_build/data/',
+	'resolvers' => $root.'_build/resolvers/',
 	'chunks' => $root.'core/components/'.PKG_NAME_LOWER.'/elements/chunks/',
 	'snippets' => $root.'core/components/'.PKG_NAME_LOWER.'/elements/snippets/',
 	'plugins' => $root.'core/components/'.PKG_NAME_LOWER.'/elements/plugins/',
-	'lexicon' => $root . 'core/components/'.PKG_NAME_LOWER.'/lexicon/',
+	'lexicon' => $root.'core/components/'.PKG_NAME_LOWER.'/lexicon/',
 	'docs' => $root.'core/components/'.PKG_NAME_LOWER.'/docs/',
 	'pages' => $root.'core/components/'.PKG_NAME_LOWER.'/elements/pages/',
 	'source_assets' => $root.'assets/components/'.PKG_NAME_LOWER,
@@ -44,7 +44,6 @@ $builder = new modPackageBuilder($modx);
 $builder->createPackage(PKG_NAME_LOWER,PKG_VERSION,PKG_RELEASE);
 $builder->registerNamespace(PKG_NAME_LOWER,false,true,PKG_NAMESPACE_PATH);
 
-if (!XPDO_CLI_MODE) {echo '<pre>';}
 $modx->log(modX::LOG_LEVEL_INFO,'Created Transport Package and Namespace.');
 
 /* load system settings */
@@ -314,5 +313,4 @@ if (defined('PKG_AUTO_INSTALL') && PKG_AUTO_INSTALL) {
 	}
 }
 
-$modx->log(modX::LOG_LEVEL_INFO,"\n<br />Execution time: {$totalTime}\n");
-if (!XPDO_CLI_MODE) {echo '/<pre>';}
+$modx->log(modX::LOG_LEVEL_INFO,"Execution time: {$totalTime}");
