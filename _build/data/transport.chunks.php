@@ -9,6 +9,9 @@ $tmp = array(
 	),
 );
 
+// Save chunks for setup options
+$BUILD_CHUNKS = array();
+
 foreach ($tmp as $k => $v) {
 	/* @avr modChunk $chunk */
 	$chunk = $modx->newObject('modChunk');
@@ -23,6 +26,8 @@ foreach ($tmp as $k => $v) {
 	),'',true,true);
 
 	$chunks[] = $chunk;
+
+	$BUILD_CHUNKS[$k] = file_get_contents($sources['source_core'].'/elements/chunks/chunk.'.$v['file'].'.tpl');
 }
 
 unset($tmp);

@@ -1,5 +1,8 @@
 <?php
-require 'build.config.php';
+
+if (!defined('MODX_BASE_PATH')) {
+	require 'build.config.php';
+}
 
 /* define sources */
 $root = dirname(dirname(__FILE__)).'/';
@@ -20,8 +23,9 @@ $modx= new modX();
 $modx->initialize('mgr');
 $modx->getService('error', 'error.modError');
 $modx->setLogLevel(modX::LOG_LEVEL_INFO);
-$modx->setLogTarget(XPDO_CLI_MODE ? 'ECHO' : 'HTML');
+$modx->setLogTarget('ECHO');
 $modx->loadClass('transport.modPackageBuilder', '', false, true);
+if (!XPDO_CLI_MODE) {echo '<pre>';}
 
 /** @var xPDOManager $manager */
 $manager = $modx->getManager();
@@ -35,3 +39,4 @@ rrmdir($sources['model'] . PKG_NAME_LOWER . '/mysql');
 $generator->parseSchema($sources['xml'], $sources['model']);
 
 $modx->log(modX::LOG_LEVEL_INFO, 'Model generated.');
+if (!XPDO_CLI_MODE) {echo '</pre>';}
