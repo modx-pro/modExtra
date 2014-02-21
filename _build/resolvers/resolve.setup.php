@@ -38,9 +38,6 @@ if ($object->xpdo) {
 			break;
 
 		case xPDOTransport::ACTION_UNINSTALL:
-			if ($object->xpdo instanceof modX) {
-				$modx->removeExtensionPackage('minishop2');
-			}
 			$success = true;
 			break;
 	}
