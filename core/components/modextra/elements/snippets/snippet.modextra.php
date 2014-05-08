@@ -23,7 +23,7 @@ $list = array();
 /* @var modExtraItem $item */
 foreach ($items as $item) {
 	$itemArray = $item->toArray();
-	$list[] = $modExtra->getChunk($tpl,$itemArray);
+	$list[] = $modx->getChunk($tpl,$itemArray);
 }
 
 /* output */
