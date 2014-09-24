@@ -185,17 +185,17 @@ Ext.extend(modExtra.grid.Items, MODx.grid.Grid, {
 
 	getColumns: function (config) {
 		return [{
-			header: _('id'),
+			header: _('modextra_item_id'),
 			dataIndex: 'id',
 			sortable: true,
 			width: 70
 		}, {
-			header: _('name'),
+			header: _('modextra_item_name'),
 			dataIndex: 'name',
 			sortable: true,
 			width: 200,
 		}, {
-			header: _('description'),
+			header: _('modextra_item_description'),
 			dataIndex: 'description',
 			sortable: false,
 			width: 250,

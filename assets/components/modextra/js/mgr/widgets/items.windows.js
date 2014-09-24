@@ -23,14 +23,14 @@ Ext.extend(modExtra.window.CreateItem, MODx.Window, {
 	getFields: function (config) {
 		return [{
 			xtype: 'textfield',
-			fieldLabel: _('name'),
+			fieldLabel: _('modextra_item_name'),
 			name: 'name',
 			id: config.id + '-name',
 			anchor: '99%',
 			allowBlank: false,
 		}, {
 			xtype: 'textarea',
-			fieldLabel: _('description'),
+			fieldLabel: _('modextra_item_description'),
 			name: 'description',
 			id: config.id + '-description',
 			height: 150,
@@ -77,14 +77,14 @@ Ext.extend(modExtra.window.UpdateItem, MODx.Window, {
 			id: config.id + '-id',
 		}, {
 			xtype: 'textfield',
-			fieldLabel: _('name'),
+			fieldLabel: _('modextra_item_name'),
 			name: 'name',
 			id: config.id + '-name',
 			anchor: '99%',
 			allowBlank: false,
 		}, {
 			xtype: 'textarea',
-			fieldLabel: _('description'),
+			fieldLabel: _('modextra_item_description'),
 			name: 'description',
 			id: config.id + '-description',
 			anchor: '99%',
