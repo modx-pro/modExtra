@@ -2,12 +2,13 @@
 
 $settings = array();
 
-$tmp = array(
+$tmp = array(/*
 	'some_setting' => array(
 		'xtype' => 'combo-boolean',
 		'value' => true,
 		'area' => 'modextra_main',
 	),
+	*/
 );
 
 foreach ($tmp as $k => $v) {
@@ -15,10 +16,10 @@ foreach ($tmp as $k => $v) {
 	$setting = $modx->newObject('modSystemSetting');
 	$setting->fromArray(array_merge(
 		array(
-			'key' => 'modextra_'.$k,
+			'key' => 'modextra_' . $k,
 			'namespace' => PKG_NAME_LOWER,
 		), $v
-	),'',true,true);
+	), '', true, true);
 
 	$settings[] = $setting;
 }

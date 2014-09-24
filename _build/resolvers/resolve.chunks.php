@@ -1,13 +1,7 @@
 <?php
-/**
- * Resolve overwriting chunks
- *
- * @var xPDOObject $object
- * @var array $options
- */
 
 if ($object->xpdo) {
-	/* @var modX $modx */
+	/** @var modX $modx */
 	$modx =& $object->xpdo;
 
 	switch ($options[xPDOTransport::PACKAGE_ACTION]) {
@@ -20,7 +14,7 @@ if ($object->xpdo) {
 					if (!empty($options['chunks'][$v]) && $chunk = $modx->getObject('modChunk', array('name' => $v))) {
 						$chunk->set('snippet', $options['chunks'][$v]);
 						$chunk->save();
-						$modx->log(modX::LOG_LEVEL_INFO, 'Updated chunk "<b>'.$v.'</b>"');
+						$modx->log(modX::LOG_LEVEL_INFO, 'Updated chunk "<b>' . $v . '</b>"');
 					}
 				}
 			}

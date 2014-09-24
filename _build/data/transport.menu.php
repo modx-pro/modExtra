@@ -22,7 +22,7 @@ foreach ($tmp as $k => $v) {
 			'id' => 0,
 			'parent' => 0,
 			'haslayout' => 1,
-			'lang_topics' => PKG_NAME_LOWER.':default',
+			'lang_topics' => PKG_NAME_LOWER . ':default',
 			'assets' => '',
 		), $v['action']), '', true, true);
 		unset($v['action']);

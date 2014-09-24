@@ -1,7 +1,5 @@
 <?php
-/**
- * Build the setup options form.
- */
+
 $exists = $chunks = false;
 $output = null;
 switch ($options[xPDOTransport::PACKAGE_ACTION]) {
@@ -17,16 +15,16 @@ switch ($options[xPDOTransport::PACKAGE_ACTION]) {
 				$chunks .= '
 				<li>
 					<label>
-						<input type="checkbox" name="update_chunks[]" value="'.$k.'"> '.$k.'
+						<input type="checkbox" name="update_chunks[]" value="' . $k . '"> ' . $k . '
 					</label>
 				</li>';
 			}
 			$chunks .= '</ul>';
 		}
-
 		break;
 
-	case xPDOTransport::ACTION_UNINSTALL: break;
+	case xPDOTransport::ACTION_UNINSTALL:
+		break;
 }
 
 $output = '';

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The home manager controller for modExtra.
  *
@@ -27,7 +28,11 @@ class modExtraHomeManagerController extends modExtraMainController {
 	 * @return void
 	 */
 	public function loadCustomCssJs() {
+		$this->addCss($this->modExtra->config['cssUrl'] . 'mgr/main.css');
+		$this->addCss($this->modExtra->config['cssUrl'] . 'mgr/bootstrap.buttons.css');
+		$this->addJavascript($this->modExtra->config['jsUrl'] . 'mgr/misc/utils.js');
 		$this->addJavascript($this->modExtra->config['jsUrl'] . 'mgr/widgets/items.grid.js');
+		$this->addJavascript($this->modExtra->config['jsUrl'] . 'mgr/widgets/items.windows.js');
 		$this->addJavascript($this->modExtra->config['jsUrl'] . 'mgr/widgets/home.panel.js');
 		$this->addJavascript($this->modExtra->config['jsUrl'] . 'mgr/sections/home.js');
 		$this->addHtml('<script type="text/javascript">

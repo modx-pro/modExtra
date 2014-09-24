@@ -1,8 +1,8 @@
 <?php
+
 /**
  * The base class for modExtra.
  */
-
 class modExtra {
 	/* @var modX $modx */
 	public $modx;

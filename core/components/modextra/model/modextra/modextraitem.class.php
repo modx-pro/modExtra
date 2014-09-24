@@ -1,5 +1,7 @@
 <?php
+
 /**
  * @package modextra
  */
-class modExtraItem extends xPDOSimpleObject {}
+class modExtraItem extends xPDOSimpleObject {
+}

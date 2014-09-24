@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Create an Item
  */
@@ -6,21 +7,22 @@ class modExtraItemCreateProcessor extends modObjectCreateProcessor {
 	public $objectType = 'modExtraItem';
 	public $classKey = 'modExtraItem';
 	public $languageTopics = array('modextra');
-	public $permission = 'new_document';
+	//public $permission = 'create';
 
 
 	/**
 	 * @return bool
 	 */
 	public function beforeSet() {
-		$alreadyExists = $this->modx->getObject('modExtraItem', array(
-			'name' => $this->getProperty('name'),
-		));
-		if ($alreadyExists) {
+		$name = trim($this->getProperty('name'));
+		if (empty($name)) {
+			$this->modx->error->addField('name', $this->modx->lexicon('modextra_item_err_name'));
+		}
+		elseif ($this->modx->getCount($this->classKey, array('name' => $name))) {
 			$this->modx->error->addField('name', $this->modx->lexicon('modextra_item_err_ae'));
 		}
 
-		return !$this->hasErrors();
+		return parent::beforeSet();
 	}
 
 }

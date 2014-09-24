@@ -6,7 +6,6 @@
  * @param string $start Directory for find and replace in files old name to new name
  *
  */
-
 $new_name = !empty($_REQUEST['name'])
 	? $_REQUEST['name']
 	: (!empty($argv[1])
@@ -16,7 +15,7 @@ $new_name_lower = strtolower($new_name);
 $start = dirname(__FILE__);
 
 if (empty($new_name)) {
-	exit("\n".'You need to specify a new name of component in this file on line 9, or send it via $_GET["name"].');
+	exit("\n" . 'You need to specify a new name of component in this file on line 9, or send it via $_GET["name"].');
 }
 // --
 
@@ -46,12 +45,14 @@ function rename_extra($start_path, $find = array(), $replace = array()) {
 	$items = scandir($start_path);
 
 	foreach ($items as $item) {
-		if (strpos($item, '.') === 0) {continue;}
+		if (strpos($item, '.') === 0) {
+			continue;
+		}
 
-		$old_path = str_replace('//','/', $start_path . '/' . $item);
+		$old_path = str_replace('//', '/', $start_path . '/' . $item);
 
 		if (strpos($old_path, $find[1]) !== false) {
-			$new_path = str_replace('//','/', $start_path . '/' . str_replace($find, $replace, $item));
+			$new_path = str_replace('//', '/', $start_path . '/' . str_replace($find, $replace, $item));
 			if (!rename($old_path, $new_path)) {
 				exit("\nCould not rename $old_path to $new_path");
 			}
@@ -60,7 +61,7 @@ function rename_extra($start_path, $find = array(), $replace = array()) {
 			$new_path = $old_path;
 		}
 
-		echo $new_path ."\n";
+		echo $new_path . "\n";
 
 		if (is_dir($new_path)) {
 			rename_extra($new_path, $find, $replace);
@@ -70,7 +71,7 @@ function rename_extra($start_path, $find = array(), $replace = array()) {
 			$content = str_replace($find, $replace, $content);
 
 			if ($item == 'index.class.php') {
-				$content = str_replace($replace[0].'ManagerController', 'modExtraManagerController', $content);
+				$content = str_replace($replace[0] . 'ManagerController', 'modExtraManagerController', $content);
 			}
 
 			file_put_contents($new_path, $content);

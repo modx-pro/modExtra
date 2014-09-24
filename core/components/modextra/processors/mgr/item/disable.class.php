@@ -1,13 +1,13 @@
 <?php
 
 /**
- * Remove an Items
+ * Disable an Item
  */
-class modExtraItemRemoveProcessor extends modObjectProcessor {
+class modExtraItemDisableProcessor extends modObjectProcessor {
 	public $objectType = 'modExtraItem';
 	public $classKey = 'modExtraItem';
 	public $languageTopics = array('modextra');
-	//public $permission = 'remove';
+	//public $permission = 'save';
 
 
 	/**
@@ -29,7 +29,8 @@ class modExtraItemRemoveProcessor extends modObjectProcessor {
 				return $this->failure($this->modx->lexicon('modextra_item_err_nf'));
 			}
 
-			$object->remove();
+			$object->set('active', false);
+			$object->save();
 		}
 
 		return $this->success();
@@ -37,4 +38,4 @@ class modExtraItemRemoveProcessor extends modObjectProcessor {
 
 }
 
-return 'modExtraItemRemoveProcessor';
+return 'modExtraItemDisableProcessor';
