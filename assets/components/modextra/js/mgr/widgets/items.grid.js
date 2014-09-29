@@ -37,8 +37,10 @@ modExtra.grid.Items = function (config) {
 	modExtra.grid.Items.superclass.constructor.call(this, config);
 
 	// Clear selection on grid refresh
-	this.store.on('load', function (a, b, c, d, e) {
-		this.getSelectionModel().clearSelections();
+	this.store.on('load', function () {
+		if (this._getSelectedIds().length) {
+			this.getSelectionModel().clearSelections();
+		}
 	}, this);
 };
 Ext.extend(modExtra.grid.Items, MODx.grid.Grid, {
