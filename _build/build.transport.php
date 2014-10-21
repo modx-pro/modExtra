@@ -6,6 +6,8 @@ $mtime = $mtime[1] + $mtime[0];
 $tstart = $mtime;
 set_time_limit(0);
 
+header('Content-Type:text/html;charset=utf-8');
+
 require_once 'build.config.php';
 // Refresh model
 if (file_exists('build.model.php')) {
