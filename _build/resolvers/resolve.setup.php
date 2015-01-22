@@ -19,17 +19,19 @@ if ($object->xpdo) {
 				'pdoTools' => array(
 					'version_major' => 1,
 					'version_minor:>=' => 9,
-				)
+					//'service_url' => 'modx.com'
+				),
 			);
 			foreach ($packages as $package => $options) {
 				$query = array('package_name' => $package);
 				if (!empty($options)) {
 					$query = array_merge($query, $options);
+					unset($query['service_url']);
 				}
 				if (!$modx->getObject('transport.modTransportPackage', $query)) {
 					$modx->log(modX::LOG_LEVEL_INFO, 'Trying to install <b>' . $package . '</b>. Please wait...');
 
-					$response = installPackage($package);
+					$response = installPackage($package, $options);
 					if ($response['success']) {
 						$level = modX::LOG_LEVEL_INFO;
 					}
@@ -57,11 +59,17 @@ if ($object->xpdo) {
  *
  * @return array|bool
  */
-function installPackage($packageName) {
+function installPackage($packageName, $options) {
 	global $modx;
 
 	/** @var modTransportProvider $provider */
-	if (!$provider = $modx->getObject('transport.modTransportProvider', array('service_url:LIKE' => '%simpledream.ru%', 'OR:service_url:LIKE' => '%modstore.pro%'))) {
+	if (isset($options['service_url'])) {
+		$providerParams = array('service_url:LIKE' => '%' . $options['service_url'] . '%');
+	} else {
+		$providerParams = array('service_url:LIKE' => '%store.simpledream.ru%', 'OR:service_url:LIKE' => '%modstore.pro%');
+	}
+	$provider = $modx->getObject('transport.modTransportProvider', $providerParams);
+	if (!$provider)	{
 		$provider = $modx->getObject('transport.modTransportProvider', 1);
 	}
 
