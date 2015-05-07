@@ -26,7 +26,7 @@ modExtra.grid.Items = function (config) {
 			scrollOffset: 0,
 			getRowClass: function (rec, ri, p) {
 				return !rec.data.active
-					? 'modextra-row-disabled'
+					? 'modextra-grid-row-disabled'
 					: '';
 			}
 		},
