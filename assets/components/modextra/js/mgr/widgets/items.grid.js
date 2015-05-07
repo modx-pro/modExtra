@@ -219,7 +219,7 @@ Ext.extend(modExtra.grid.Items, MODx.grid.Grid, {
 
 	getTopBar: function (config) {
 		return [{
-			text: '<i class="icon icon-plus">&nbsp;' + _('modextra_item_create'),
+			text: '<i class="icon icon-plus"></i>&nbsp;' + _('modextra_item_create'),
 			handler: this.createItem,
 			scope: this
 		}, '->', {
