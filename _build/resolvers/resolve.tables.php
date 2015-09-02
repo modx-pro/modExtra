@@ -33,7 +33,7 @@ if ($object->xpdo) {
                     $tableFields[] = $cl['Field'];
                 }
 
-                foreach ($manager->xpdo->getFields($tmp) as $field => $v) {
+                foreach ($modx->getFields($tmp) as $field => $v) {
                     if (in_array($field, $tableFields)) {
                         unset($tableFields[$field]);
                         $manager->alterField($tmp, $field);
