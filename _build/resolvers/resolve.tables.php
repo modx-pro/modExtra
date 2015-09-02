@@ -21,8 +21,6 @@ if ($object->xpdo) {
                     }
                 }
                 unset($schema);
-            } else {
-                $modx->log(modX::LOG_LEVEL_ERROR, 'Could not get classes from schema file.');
             }
             foreach ($objects as $tmp) {
                 // Operate with tables
