@@ -16,7 +16,7 @@ abstract class modExtraMainController extends modExtraManagerController {
 		require_once $corePath . 'model/modextra/modextra.class.php';
 
 		$this->modExtra = new modExtra($this->modx);
-		$this->addCss($this->modExtra->config['cssUrl'] . 'mgr/main.css');
+		//$this->addCss($this->modExtra->config['cssUrl'] . 'mgr/main.css');
 		$this->addJavascript($this->modExtra->config['jsUrl'] . 'mgr/modextra.js');
 		$this->addHtml('
 		<script type="text/javascript">
