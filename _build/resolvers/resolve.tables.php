@@ -29,7 +29,7 @@ if ($object->xpdo) {
                 if ($stmt->execute()) {
                     $result = $stmt->fetch(PDO::FETCH_ASSOC);
                 } else {
-                    $this->modx->log(modX::LOG_LEVEL_ERROR, "Error executing sql query!");
+                    $modx->log(modX::LOG_LEVEL_ERROR, "Error executing sql query!");
                     die();
                 }
                 if ($result) {
@@ -39,12 +39,7 @@ if ($object->xpdo) {
                 }
                 // If the table is just created
                 if ($newTable) {
-                    // 1. Operate with tables
                     $manager->createObjectContainer($tmp);
-                    // 2. Operate with indexes
-                    foreach ($modx->getIndexMeta($tmp) as $name => $meta) {
-                        $manager->addIndex($tmp, $name);
-                    }
                 } else {
                     // If the table exists
                     // 1. Operate with tables
@@ -52,7 +47,7 @@ if ($object->xpdo) {
                     $c = $modx->prepare("SHOW COLUMNS IN {$modx->getTableName($tmp)}");
                     $c->execute();
                     while ($cl = $c->fetch(PDO::FETCH_ASSOC)) {
-                        $tableFields[] = $cl['Field'];
+                        $tableFields[$cl['Field']] = $cl['Field'];
                     }
                     foreach ($modx->getFields($tmp) as $field => $v) {
                         if (in_array($field, $tableFields)) {
@@ -70,7 +65,7 @@ if ($object->xpdo) {
                     $c = $modx->prepare("SHOW INDEX FROM {$modx->getTableName($tmp)}");
                     $c->execute();
                     while ($cl = $c->fetch(PDO::FETCH_ASSOC)) {
-                        $indexes[] = $cl['Key_name'];
+                        $indexes[$cl['Key_name']] = $cl['Key_name'];
                     }
                     foreach ($modx->getIndexMeta($tmp) as $name => $meta) {
                         if (in_array($name, $indexes)) {
