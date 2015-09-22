@@ -23,9 +23,15 @@ if ($object->xpdo) {
                 unset($schema);
             }
             foreach ($objects as $tmp) {
-                $sql = "SHOW TABLE STATUS LIKE '".$modx->getTableName($tmp)."'";
+                $sql = "SHOW TABLES LIKE '".$modx->getTableName($tmp)."'";
                 $stmt = $modx->prepare($sql);
-                if (!$stmt->execute()) {
+                if ($stmt->execute()) {
+                    $result = $stmt->fetch(PDO::FETCH_ASSOC);
+                } else {
+                    $this->modx->log(modX::LOG_LEVEL_ERROR, "Error executing sql query!");
+                    die();
+                }
+                if ($result) {
                     $newTable = true;
                 } else {
                     $newTable = false;
