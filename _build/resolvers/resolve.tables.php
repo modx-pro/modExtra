@@ -23,7 +23,8 @@ if ($object->xpdo) {
                 unset($schema);
             }
             foreach ($objects as $tmp) {
-                $sql = "SHOW TABLES LIKE '".$modx->getTableName($tmp)."'";
+                $table = $modx->getTableName($tmp);
+                $sql = "SHOW TABLES LIKE '".trim($table,'`')."'";
                 $stmt = $modx->prepare($sql);
                 if ($stmt->execute()) {
                     $result = $stmt->fetch(PDO::FETCH_ASSOC);
@@ -32,9 +33,9 @@ if ($object->xpdo) {
                     die();
                 }
                 if ($result) {
-                    $newTable = true;
-                } else {
                     $newTable = false;
+                } else {
+                    $newTable = true;
                 }
                 // If the table is just created
                 if ($newTable) {
