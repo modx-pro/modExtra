@@ -26,16 +26,9 @@ if ($object->xpdo) {
                 $table = $modx->getTableName($tmp);
                 $sql = "SHOW TABLES LIKE '".trim($table,'`')."'";
                 $stmt = $modx->prepare($sql);
-                if ($stmt->execute()) {
-                    $result = $stmt->fetch(PDO::FETCH_ASSOC);
-                } else {
-                    $modx->log(modX::LOG_LEVEL_ERROR, "Error executing sql query!");
-                    die();
-                }
-                if ($result) {
+                $newTable = true;
+                if ($stmt->execute() && $stmt->fetchAll()) {
                     $newTable = false;
-                } else {
-                    $newTable = true;
                 }
                 // If the table is just created
                 if ($newTable) {
