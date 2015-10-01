@@ -1,9 +1,8 @@
 modExtra.utils.renderBoolean = function (value, props, row) {
-
 	return value
 		? String.format('<span class="green">{0}</span>', _('yes'))
 		: String.format('<span class="red">{0}</span>', _('no'));
-}
+};
 
 modExtra.utils.getMenu = function (actions, grid, selected) {
 	var menu = [];

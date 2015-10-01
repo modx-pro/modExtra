@@ -8,15 +8,20 @@ modExtra.window.CreateItem = function (config) {
 		width: 550,
 		autoHeight: true,
 		url: modExtra.config.connector_url,
-		action: 'mgr/item/create',
+		baseParams: {
+			action: 'modextra/processor',
+			method: 'item/create',
+		},
 		fields: this.getFields(config),
-		keys: [{
-			key: Ext.EventObject.ENTER, shift: true, fn: function () {
-				this.submit()
-			}, scope: this
-		}]
+		keys: this.getKeys(config),
 	});
 	modExtra.window.CreateItem.superclass.constructor.call(this, config);
+	this.on('hide', function() {
+		var w = this;
+		window.setTimeout(function() {
+			w.close();
+		}, 200);
+	});
 };
 Ext.extend(modExtra.window.CreateItem, MODx.Window, {
 
@@ -44,8 +49,13 @@ Ext.extend(modExtra.window.CreateItem, MODx.Window, {
 		}];
 	},
 
-	loadDropZones: function() {
-	}
+	getKeys: function(config) {
+		return [{
+			key: Ext.EventObject.ENTER, shift: true, fn: function () {
+				this.submit()
+			}, scope: this
+		}];
+	},
 
 });
 Ext.reg('modextra-item-window-create', modExtra.window.CreateItem);
@@ -61,15 +71,20 @@ modExtra.window.UpdateItem = function (config) {
 		width: 550,
 		autoHeight: true,
 		url: modExtra.config.connector_url,
-		action: 'mgr/item/update',
+		baseParams: {
+			action: 'modextra/processor',
+			method: 'item/update',
+		},
 		fields: this.getFields(config),
-		keys: [{
-			key: Ext.EventObject.ENTER, shift: true, fn: function () {
-				this.submit()
-			}, scope: this
-		}]
+		keys: this.getKeys(config),
 	});
 	modExtra.window.UpdateItem.superclass.constructor.call(this, config);
+	this.on('hide', function() {
+		var w = this;
+		window.setTimeout(function() {
+			w.close();
+		}, 200);
+	});
 };
 Ext.extend(modExtra.window.UpdateItem, MODx.Window, {
 
@@ -100,8 +115,13 @@ Ext.extend(modExtra.window.UpdateItem, MODx.Window, {
 		}];
 	},
 
-	loadDropZones: function() {
-	}
+	getKeys: function() {
+		return [{
+			key: Ext.EventObject.ENTER, shift: true, fn: function () {
+				this.submit()
+			}, scope: this
+		}];
+	},
 
 });
 Ext.reg('modextra-item-window-update', modExtra.window.UpdateItem);
