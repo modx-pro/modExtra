@@ -16,8 +16,8 @@ if ($object->xpdo) {
             if (is_file($schemaFile)) {
                 $schema = new SimpleXMLElement($schemaFile, 0, true);
                 if (isset($schema->object)) {
-                    foreach ($schema->object as $object) {
-                        $objects[] = (string)$object['class'];
+                    foreach ($schema->object as $obj) {
+                        $objects[] = (string)$obj['class'];
                     }
                 }
                 unset($schema);
@@ -86,8 +86,8 @@ if ($object->xpdo) {
             if (is_file($schemaFile)) {
                 $schema = new SimpleXMLElement($schemaFile, 0, true);
                 if (isset($schema->object)) {
-                    foreach ($schema->object as $object) {
-                        $objects[] = (string)$object['class'];
+                    foreach ($schema->object as $obj) {
+                        $objects[] = (string)$obj['class'];
                     }
                 }
                 unset($schema);
