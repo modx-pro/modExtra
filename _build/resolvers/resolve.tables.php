@@ -18,8 +18,8 @@ if ($transport->xpdo) {
             if (is_file($schemaFile)) {
                 $schema = new SimpleXMLElement($schemaFile, 0, true);
                 if (isset($schema->object)) {
-                    foreach ($schema->object as $object) {
-                        $objects[] = (string)$object['class'];
+                    foreach ($schema->object as $obj) {
+                        $objects[] = (string)$obj['class'];
                     }
                 }
                 unset($schema);
@@ -77,29 +77,6 @@ if ($transport->xpdo) {
             break;
 
         case xPDOTransport::ACTION_UNINSTALL:
-            // Remove tables if it's need
-            /*
-            $modelPath = $modx->getOption('modextra_core_path', null, $modx->getOption('core_path') . 'components/modextra/') . 'model/';
-            $modx->addPackage('modextra', $modelPath);
-
-            $manager = $modx->getManager();
-            $objects = array();
-            $schemaFile = MODX_CORE_PATH . 'components/modextra/model/schema/modextra.mysql.schema.xml';
-            if (is_file($schemaFile)) {
-                $schema = new SimpleXMLElement($schemaFile, 0, true);
-                if (isset($schema->object)) {
-                    foreach ($schema->object as $object) {
-                        $objects[] = (string)$object['class'];
-                    }
-                }
-                unset($schema);
-            } else {
-                $modx->log(modX::LOG_LEVEL_ERROR, 'Could not get classes from schema file.');
-            }
-            foreach ($objects as $tmp) {
-                $manager->removeObjectContainer($tmp);
-            }
-            */
             break;
     }
 }
