@@ -1,4 +1,4 @@
 <p>
-	<strong>[[+name]]</strong> -
-	<small>[[+description]]</small>
+    <strong>[[+name]]</strong> -
+    <small>[[+description]]</small>
 </p>

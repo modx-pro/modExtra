@@ -5,11 +5,12 @@
  *
  * @return string
  */
-function getSnippetContent($filename) {
-	$file = trim(file_get_contents($filename));
-	preg_match('#\<\?php(.*)#is', $file, $data);
+function getSnippetContent($filename)
+{
+    $file = trim(file_get_contents($filename));
+    preg_match('#\<\?php(.*)#is', $file, $data);
 
-	return rtrim(rtrim(trim($data[1]), '?>'));
+    return rtrim(rtrim(trim($data[1]), '?>'));
 }
 
 
@@ -18,22 +19,21 @@ function getSnippetContent($filename) {
  *
  * @param $dir
  */
-function rrmdir($dir) {
-	if (is_dir($dir)) {
-		$objects = scandir($dir);
+function rrmdir($dir)
+{
+    if (is_dir($dir)) {
+        $objects = scandir($dir);
 
-		foreach ($objects as $object) {
-			if ($object != "." && $object != "..") {
-				if (filetype($dir . "/" . $object) == "dir") {
-					rrmdir($dir . "/" . $object);
-				}
-				else {
-					unlink($dir . "/" . $object);
-				}
-			}
-		}
-
-		reset($objects);
-		rmdir($dir);
-	}
+        foreach ($objects as $object) {
+            if ($object != "." && $object != "..") {
+                if (filetype($dir . "/" . $object) == "dir") {
+                    rrmdir($dir . "/" . $object);
+                } else {
+                    unlink($dir . "/" . $object);
+                }
+            }
+        }
+        reset($objects);
+        rmdir($dir);
+    }
 }

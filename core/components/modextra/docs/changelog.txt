@@ -1,8 +1,15 @@
 Changelog for modExtra.
 
+1.0.1-beta
+==============
+- PSR-2
+- Requires at least MODX 2.3
+- Disabling "office" resolver will clear its files from built package.
+- Fixed some typos.
+
 1.0.0-beta
 ==============
-- Opimized for MODX 2.3
+- Optimized for MODX 2.3
 - Improved processors
 - Disabled plugin and system settings
 - Improved UI

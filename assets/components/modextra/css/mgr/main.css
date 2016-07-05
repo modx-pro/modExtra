@@ -1,69 +1,27 @@
-.x-grid3-col-actions {
-	padding: 3px 0 3px 5px;
-}
-
-ul.modextra-row-actions {
-	margin: 0;
-	padding: 0;
-	list-style: none;
-}
-
-ul.modextra-row-actions li {
-	float: left;
-}
-
-ul.modextra-row-actions .btn {
-	padding: 5px;
-	margin-right: 2px;
-	min-width: 26px;
-	font-size: inherit;
-}
-
-.modextra-grid-row-disabled {
-	font-style: italic;
-	opacity: .6;
-	color: #555;
-}
-
-.action-red {
-	color: darkred !important;
-}
-
-.action-green {
-	color: darkgreen !important;
-}
-
-.action-blue {
-	color: cadetblue !important;
-}
-
-.action-yellow {
-	color: goldenrod !important;
-}
-
-.action-gray {
-	color: dimgray !important;
-}
-
-a.x-menu-item .x-menu-item-text, a.x-menu-item .x-menu-item-text .icon {
-	cursor: pointer;
-}
-
-a.x-menu-item .x-menu-item-text .icon {
-	line-height: 16px;
-	top: auto;
-}
-
-.x-menu-list .icon {
-	min-width: 1em;
-	text-align: center;
-}
-
-.x-menu-list-item:hover .icon {
-	color: inherit !important;
-}
-
-/*
-ul.modextra-row-actions .actions-menu {width: 40px;}
-ul.modextra-row-actions .actions-menu:after {content: " \f107";}
-*/
+/* Grid */
+.modextra-grid-row-disabled { font-style: italic; opacity: .6; color: #555; }
+.x-grid3-col-actions { padding: 3px 0 3px 5px; }
+/* Actions */
+.action-red { color: darkred !important; }
+.action-green { color: darkgreen !important; }
+.action-blue { color: cadetblue !important; }
+.action-yellow { color: goldenrod !important; }
+.action-gray { color: dimgray !important; }
+ul.modextra-row-actions { margin: 0; padding: 0; list-style: none; }
+ul.modextra-row-actions li { float: left; }
+ul.modextra-row-actions .btn { padding: 5px; margin-right: 2px; min-width: 26px; font-size: inherit; }
+/* Action menu */
+a.x-menu-item .x-menu-item-text, a.x-menu-item .x-menu-item-text .icon { cursor: pointer; }
+a.x-menu-item .x-menu-item-text .icon { line-height: 16px; top: auto; }
+.x-menu-list .icon { min-width: 1em; text-align: center; }
+.x-menu-list-item:hover .icon { color: inherit !important; }
+ul.modextra-row-actions .actions-menu { width: 40px; }
+ul.modextra-row-actions .actions-menu:after { content: " \f107"; }
+/* Search field */
+.x-field-search-clear,
+.x-field-search-go { border-left: 1px solid #e4e4e4 !important; }
+.x-field-search-clear:hover,
+.x-field-search-go:hover { border-left-color: transparent !important; }
+.x-field-search-clear:before { content: '\f00d' !important; }
+.x-field-search-go { right: 31px !important; border-radius: 0 !important; }
+.x-field-search-go:before { content: '\f002' !important; }

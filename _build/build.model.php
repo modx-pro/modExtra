@@ -1,22 +1,24 @@
 <?php
 
 if (!defined('MODX_BASE_PATH')) {
-	require 'build.config.php';
+    require 'build.config.php';
 }
 
-/* define sources */
+// define sources
 $root = dirname(dirname(__FILE__)) . '/';
 $sources = array(
-	'root' => $root,
-	'build' => $root . '_build/',
-	'source_core' => $root . 'core/components/' . PKG_NAME_LOWER,
-	'model' => $root . 'core/components/' . PKG_NAME_LOWER . '/model/',
-	'schema' => $root . 'core/components/' . PKG_NAME_LOWER . '/model/schema/',
-	'xml' => $root . 'core/components/' . PKG_NAME_LOWER . '/model/schema/' . PKG_NAME_LOWER . '.mysql.schema.xml',
+    'root' => $root,
+    'build' => $root . '_build/',
+    'source_core' => $root . 'core/components/' . PKG_NAME_LOWER,
+    'model' => $root . 'core/components/' . PKG_NAME_LOWER . '/model/',
+    'schema' => $root . 'core/components/' . PKG_NAME_LOWER . '/model/schema/',
+    'xml' => $root . 'core/components/' . PKG_NAME_LOWER . '/model/schema/' . PKG_NAME_LOWER . '.mysql.schema.xml',
 );
 unset($root);
 
+/** @noinspection PhpIncludeInspection */
 require MODX_CORE_PATH . 'model/modx/modx.class.php';
+/** @noinspection PhpIncludeInspection */
 require $sources['build'] . '/includes/functions.php';
 
 $modx = new modX();
@@ -26,7 +28,7 @@ $modx->setLogLevel(modX::LOG_LEVEL_INFO);
 $modx->setLogTarget('ECHO');
 $modx->loadClass('transport.modPackageBuilder', '', false, true);
 if (!XPDO_CLI_MODE) {
-	echo '<pre>';
+    echo '<pre>';
 }
 
 /** @var xPDOManager $manager */
@@ -42,5 +44,5 @@ $generator->parseSchema($sources['xml'], $sources['model']);
 
 $modx->log(modX::LOG_LEVEL_INFO, 'Model generated.');
 if (!XPDO_CLI_MODE) {
-	echo '</pre>';
+    echo '</pre>';
 }

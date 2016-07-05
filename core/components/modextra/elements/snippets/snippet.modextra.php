@@ -1,8 +1,11 @@
 <?php
+/** @var modX $modx */
 /** @var array $scriptProperties */
 /** @var modExtra $modExtra */
-if (!$modExtra = $modx->getService('modextra', 'modExtra', $modx->getOption('modextra_core_path', null, $modx->getOption('core_path') . 'components/modextra/') . 'model/modextra/', $scriptProperties)) {
-	return 'Could not load modExtra class!';
+if (!$modExtra = $modx->getService('modextra', 'modExtra', $modx->getOption('modextra_core_path', null,
+        $modx->getOption('core_path') . 'components/modextra/') . 'model/modextra/', $scriptProperties)
+) {
+    return 'Could not load modExtra class!';
 }
 
 // Do your snippet code here. This demo grabs 5 items from our custom table.
@@ -23,16 +26,16 @@ $items = $modx->getIterator('modExtraItem', $c);
 $list = array();
 /** @var modExtraItem $item */
 foreach ($items as $item) {
-	$list[] = $modx->getChunk($tpl, $item->toArray());
+    $list[] = $modx->getChunk($tpl, $item->toArray());
 }
 
 // Output
 $output = implode($outputSeparator, $list);
 if (!empty($toPlaceholder)) {
-	// If using a placeholder, output nothing and set output to specified placeholder
-	$modx->setPlaceholder($toPlaceholder, $output);
+    // If using a placeholder, output nothing and set output to specified placeholder
+    $modx->setPlaceholder($toPlaceholder, $output);
 
-	return '';
+    return '';
 }
 // By default just return output
 return $output;
