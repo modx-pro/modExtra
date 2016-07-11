@@ -69,7 +69,7 @@ function rename_extra($start_path, $find = array(), $replace = array())
             $content = file_get_contents($new_path);
             $content = str_replace($find, $replace, $content);
 
-            if ($item == 'index.class.php') {
+            if ($item == 'home.class.php') {
                 $content = str_replace($replace[0] . 'ManagerController', 'modExtraManagerController', $content);
             }
 
