@@ -24,6 +24,7 @@ $sources = array(
     'chunks' => $root . 'core/components/' . PKG_NAME_LOWER . '/elements/chunks/',
     'snippets' => $root . 'core/components/' . PKG_NAME_LOWER . '/elements/snippets/',
     'plugins' => $root . 'core/components/' . PKG_NAME_LOWER . '/elements/plugins/',
+	'widgets' => $root . 'core/components/' . PKG_NAME_LOWER . '/elements/widgets/',
     'lexicon' => $root . 'core/components/' . PKG_NAME_LOWER . '/lexicon/',
     'docs' => $root . 'core/components/' . PKG_NAME_LOWER . '/docs/',
     'pages' => $root . 'core/components/' . PKG_NAME_LOWER . '/elements/pages/',
@@ -161,6 +162,27 @@ if (defined('BUILD_MENU_UPDATE')) {
     unset($vehicle, $menus, $menu, $attributes);
 }
 
+// widgets
+if (defined('BUILD_WIDGET_UPDATE')) {
+    $widgets = include $sources['data'] . 'transport.widgets.php';
+    if (!is_array($widgets)) {
+        $modx->log(modX::LOG_LEVEL_ERROR, 'Could not package in widgets.');
+    } else {
+        $attributes = array(
+            xPDOTransport::PRESERVE_KEYS => true,
+            xPDOTransport::UPDATE_OBJECT => BUILD_WIDGET_UPDATE,
+			xPDOTransport::UNIQUE_KEY => 'name',
+        );
+        foreach ($widgets as $widget) {
+            $vehicle = $builder->createVehicle($widget, $attributes);
+            $builder->putVehicle($vehicle);
+        }
+        $modx->log(xPDO::LOG_LEVEL_INFO, 'Packaged in ' . count($widgets) . ' widgets.');
+    }
+    unset ($widgets, $widget, $attributes);
+}
+
+
 
 // create category
 $modx->log(xPDO::LOG_LEVEL_INFO, 'Created category.');
@@ -240,12 +262,6 @@ $vehicle->resolve('file', array(
     'target' => "return MODX_CORE_PATH . 'components/';",
 ));
 
-/** @var array $BUILD_RESOLVERS */
-if (!in_array('office', $BUILD_RESOLVERS)) {
-    rrmdir($sources['source_assets'] . '/js/office');
-    rrmdir($sources['source_core'] . '/controllers/office');
-    rrmdir($sources['source_core'] . '/processors/office');
-}
 foreach ($BUILD_RESOLVERS as $resolver) {
     if ($vehicle->resolve('php', array('source' => $sources['resolvers'] . 'resolve.' . $resolver . '.php'))) {
         $modx->log(modX::LOG_LEVEL_INFO, 'Added resolver "' . $resolver . '" to category.');
