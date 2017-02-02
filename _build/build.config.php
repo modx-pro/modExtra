@@ -40,6 +40,7 @@ define('BUILD_PLUGIN_UPDATE', true);
 //define('BUILD_POLICY_UPDATE', true);
 //define('BUILD_POLICY_TEMPLATE_UPDATE', true);
 //define('BUILD_PERMISSION_UPDATE', true);
+//define('BUILD_WIDGET_UPDATE', true);
 
 define('BUILD_CHUNK_STATIC', false);
 define('BUILD_SNIPPET_STATIC', false);
@@ -49,5 +50,6 @@ $BUILD_RESOLVERS = array(
     'tables',
     'chunks',
     //'setup',
+    //'widget',
     'office',
 );
