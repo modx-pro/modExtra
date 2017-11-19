@@ -1,5 +1,10 @@
 Changelog for modExtra.
 
+2.0.0-pl
+==============
+- [#6] Renaming script works in any environment.
+- Removed shell renaming script.
+
 1.0.1-beta
 ==============
 - PSR-2
