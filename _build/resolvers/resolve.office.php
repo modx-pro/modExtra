@@ -5,7 +5,7 @@
 if ($transport->xpdo) {
     $modx =& $transport->xpdo;
     /** @var Office $office */
-    if ($Office = $modx->getService('office', 'Office', MODX_CORE_PATH . 'components/office/model/office/')) {
+    if ($Office = $modx->getService('Office', 'Office', MODX_CORE_PATH . 'components/office/model/office/')) {
 
         if (!($Office instanceof Office)) {
             $modx->log(xPDO::LOG_LEVEL_ERROR, '[modExtra] Could not register paths for Office component!');
