@@ -15,9 +15,7 @@ class modExtraHomeManagerController extends modExtraManagerController
      */
     public function initialize()
     {
-        $path = $this->modx->getOption('modextra_core_path', null,
-                $this->modx->getOption('core_path') . 'components/modextra/') . 'model/modextra/';
-        $this->modExtra = $this->modx->getService('modextra', 'modExtra', $path);
+        $this->modExtra = $this->modx->getService('modExtra', 'modExtra', MODX_CORE_PATH . 'components/modextra/model/');
         parent::initialize();
     }
 
@@ -27,7 +25,7 @@ class modExtraHomeManagerController extends modExtraManagerController
      */
     public function getLanguageTopics()
     {
-        return array('modextra:default');
+        return ['modextra:default'];
     }
 
 
@@ -67,11 +65,8 @@ class modExtraHomeManagerController extends modExtraManagerController
         $this->addHtml('<script type="text/javascript">
         modExtra.config = ' . json_encode($this->modExtra->config) . ';
         modExtra.config.connector_url = "' . $this->modExtra->config['connectorUrl'] . '";
-        Ext.onReady(function() {
-            MODx.load({ xtype: "modextra-page-home"});
-        });
-        </script>
-        ');
+        Ext.onReady(function() {MODx.load({ xtype: "modextra-page-home"});});
+        </script>');
     }
 
 

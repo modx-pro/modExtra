@@ -10,7 +10,7 @@ class modExtra
      * @param modX $modx
      * @param array $config
      */
-    function __construct(modX &$modx, array $config = array())
+    function __construct(modX &$modx, array $config = [])
     {
         $this->modx =& $modx;
 
@@ -22,7 +22,7 @@ class modExtra
         );
         $connectorUrl = $assetsUrl . 'connector.php';
 
-        $this->config = array_merge(array(
+        $this->config = array_merge([
             'assetsUrl' => $assetsUrl,
             'cssUrl' => $assetsUrl . 'css/',
             'jsUrl' => $assetsUrl . 'js/',
@@ -36,7 +36,7 @@ class modExtra
             'chunkSuffix' => '.chunk.tpl',
             'snippetsPath' => $corePath . 'elements/snippets/',
             'processorsPath' => $corePath . 'processors/',
-        ), $config);
+        ], $config);
 
         $this->modx->addPackage('modextra', $this->config['modelPath']);
         $this->modx->lexicon->load('modextra:default');

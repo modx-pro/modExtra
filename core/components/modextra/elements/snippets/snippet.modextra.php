@@ -2,9 +2,8 @@
 /** @var modX $modx */
 /** @var array $scriptProperties */
 /** @var modExtra $modExtra */
-if (!$modExtra = $modx->getService('modextra', 'modExtra', $modx->getOption('modextra_core_path', null,
-        $modx->getOption('core_path') . 'components/modextra/') . 'model/modextra/', $scriptProperties)
-) {
+$modExtra = $modx->getService('modExtra', 'modExtra', MODX_CORE_PATH . 'components/modextra/model/', $scriptProperties);
+if (!$modExtra) {
     return 'Could not load modExtra class!';
 }
 
@@ -23,7 +22,7 @@ $c->limit($limit);
 $items = $modx->getIterator('modExtraItem', $c);
 
 // Iterate through items
-$list = array();
+$list = [];
 /** @var modExtraItem $item */
 foreach ($items as $item) {
     $list[] = $modx->getChunk($tpl, $item->toArray());
