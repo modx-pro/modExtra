@@ -4,7 +4,7 @@ class modExtraOfficeItemUpdateProcessor extends modObjectUpdateProcessor
 {
     public $objectType = 'modExtraItem';
     public $classKey = 'modExtraItem';
-    public $languageTopics = array('modextra');
+    public $languageTopics = ['modextra'];
     //public $permission = 'save';
 
 
@@ -37,7 +37,7 @@ class modExtraOfficeItemUpdateProcessor extends modObjectUpdateProcessor
 
         if (empty($name)) {
             $this->modx->error->addField('name', $this->modx->lexicon('modextra_item_err_name'));
-        } elseif ($this->modx->getCount($this->classKey, array('name' => $name, 'id:!=' => $id))) {
+        } elseif ($this->modx->getCount($this->classKey, ['name' => $name, 'id:!=' => $id])) {
             $this->modx->error->addField('name', $this->modx->lexicon('modextra_item_err_ae'));
         }
 

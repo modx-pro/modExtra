@@ -4,7 +4,7 @@ class modExtraItemGetProcessor extends modObjectGetProcessor
 {
     public $objectType = 'modExtraItem';
     public $classKey = 'modExtraItem';
-    public $languageTopics = array('modextra:default');
+    public $languageTopics = ['modextra:default'];
     //public $permission = 'view';
 
 

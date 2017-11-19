@@ -85,7 +85,7 @@ modExtra.utils.renderActions = function (value, props, row) {
         title = a['title'] ? a['title'] : '';
 
         item = String.format(
-            '<li class="{0}"><button class="btn btn-default {1}" action="{2}" title="{3}"></button></li>',
+            '<li class="{0}"><button class="modextra-btn modextra-btn-default {1}" action="{2}" title="{3}"></button></li>',
             cls, icon, action, title
         );
 

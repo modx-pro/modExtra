@@ -6,15 +6,15 @@ class officeModExtraController extends officeDefaultController
     /**
      * @param array $config
      */
-    public function setDefault($config = array())
+    public function setDefault($config = [])
     {
         if (defined('MODX_ACTION_MODE') && MODX_ACTION_MODE && !empty($_SESSION['Office']['modExtra'])) {
             $this->config = $_SESSION['Office']['modExtra'];
             $this->config['json_response'] = true;
         } else {
-            $this->config = array_merge(array(
+            $this->config = array_merge([
                 'tplOuter' => 'tpl.modExtra.office',
-            ), $config);
+            ], $config);
 
             $_SESSION['Office']['modExtra'] = $this->config;
         }
@@ -28,7 +28,7 @@ class officeModExtraController extends officeDefaultController
      */
     public function getLanguageTopics()
     {
-        return array('modextra:default');
+        return ['modextra:default'];
     }
 
 
@@ -39,7 +39,7 @@ class officeModExtraController extends officeDefaultController
      */
     public function initialize($ctx = 'web')
     {
-        $this->modx->error->errors = array();
+        $this->modx->error->errors = [];
         $this->modx->error->message = '';
 
         return $this->loadPackage();
@@ -71,18 +71,18 @@ class officeModExtraController extends officeDefaultController
             MODX_ASSETS_URL . 'components/modextra/js/office/default.js'));
         if (!empty($js)) {
             $this->office->addClientExtJS();
-            $this->office->addClientLexicon(array(
+            $this->office->addClientLexicon([
                 'modextra:default',
-            ), 'modextra/lexicon');
+            ], 'modextra/lexicon');
 
-            $this->office->addClientJs(array(
+            $this->office->addClientJs([
                 MODX_ASSETS_URL . 'components/modextra/js/mgr/modextra.js',
                 MODX_ASSETS_URL . 'components/modextra/js/mgr/misc/utils.js',
                 MODX_ASSETS_URL . 'components/modextra/js/office/home.panel.js',
                 MODX_ASSETS_URL . 'components/modextra/js/office/items.grid.js',
                 MODX_ASSETS_URL . 'components/modextra/js/office/items.windows.js',
                 str_replace($config['pl'], $config['vl'], $js),
-            ), 'modextra/all');
+            ], 'modextra/all');
         }
 
         return $this->modx->getChunk($this->config['tplOuter']);
@@ -120,10 +120,10 @@ class officeModExtraController extends officeDefaultController
 
         if (is_array($response)) {
             if (!isset($response['data'])) {
-                $response['data'] = array();
+                $response['data'] = [];
             }
             if ($response['errors'] === null) {
-                $response['errors'] = array();
+                $response['errors'] = [];
             }
             if ($response['message'] === null) {
                 $response['message'] = '';

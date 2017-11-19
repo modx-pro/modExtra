@@ -34,10 +34,10 @@ class modExtraOfficeItemGetListProcessor extends modObjectGetListProcessor
     {
         $query = trim($this->getProperty('query'));
         if ($query) {
-            $c->where(array(
+            $c->where([
                 'name:LIKE' => "%{$query}%",
                 'OR:description:LIKE' => "%{$query}%",
-            ));
+            ]);
         }
 
         return $c;
@@ -52,10 +52,10 @@ class modExtraOfficeItemGetListProcessor extends modObjectGetListProcessor
     public function prepareRow(xPDOObject $object)
     {
         $array = $object->toArray();
-        $array['actions'] = array();
+        $array['actions'] = [];
 
         // Edit
-        $array['actions'][] = array(
+        $array['actions'][] = [
             'cls' => '',
             'icon' => 'fa fa-edit',
             'title' => $this->modx->lexicon('modextra_item_update'),
@@ -63,10 +63,10 @@ class modExtraOfficeItemGetListProcessor extends modObjectGetListProcessor
             'action' => 'updateItem',
             'button' => true,
             'menu' => true,
-        );
+        ];
 
         if (!$array['active']) {
-            $array['actions'][] = array(
+            $array['actions'][] = [
                 'cls' => '',
                 'icon' => 'fa fa-power-off action-green',
                 'title' => $this->modx->lexicon('modextra_item_enable'),
@@ -74,9 +74,9 @@ class modExtraOfficeItemGetListProcessor extends modObjectGetListProcessor
                 'action' => 'enableItem',
                 'button' => true,
                 'menu' => true,
-            );
+            ];
         } else {
-            $array['actions'][] = array(
+            $array['actions'][] = [
                 'cls' => '',
                 'icon' => 'fa fa-power-off action-gray',
                 'title' => $this->modx->lexicon('modextra_item_disable'),
@@ -84,11 +84,11 @@ class modExtraOfficeItemGetListProcessor extends modObjectGetListProcessor
                 'action' => 'disableItem',
                 'button' => true,
                 'menu' => true,
-            );
+            ];
         }
 
         // Remove
-        $array['actions'][] = array(
+        $array['actions'][] = [
             'cls' => '',
             'icon' => 'fa fa-trash-o action-red',
             'title' => $this->modx->lexicon('modextra_item_remove'),
@@ -96,7 +96,7 @@ class modExtraOfficeItemGetListProcessor extends modObjectGetListProcessor
             'action' => 'removeItem',
             'button' => true,
             'menu' => true,
-        );
+        ];
 
         return $array;
     }

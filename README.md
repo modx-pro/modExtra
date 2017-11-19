@@ -1,57 +1,34 @@
-## modExtra
+## Quick start
 
-modExtra is a base Extra template that is useful when wanting to create a new
-Extra for MODx Revolution. One can git archive from this repository to start
-with all the file structure for beginning MODx Extra development pre-setup.
+* Install MODX Revolution
 
-## How to Export
+* Upload this package into the `Extras` directory in the root of site
 
-First, clone this repository somewhere on your development machine:
+* You need to rename it to `anyOtherName` your package, so enter into SSH console and run
+```
+php ~/www/Extras/modExtra/rename.php anyOtherName
+```
+*path on your site may differs*
 
-`git clone http://github.com/bezumkin/modExtra.git ./`
+* Then install it on dev site
+```
+php ~/www/Extras/anyOtherName/_build/build.php
+``` 
 
-Then, create the target directory where you want to create the file.
+## Settings
 
-Then, navigate to the directory modExtra is now in, and do this:
+See `_build/config.inc.php` for editable package options.
 
-`git archive HEAD | (cd /path/where/I/want/my/new/repo/ && tar -xvf -)`
+All resolvers and elements are in `_build` path. All files that begins not from `.` or `_` will be added automatically. 
 
-(Windows users can just do git archive HEAD and extract the tar file to wherever
-they want.)
+If you will add a new type of element, you will need to add the method with that name into `build.php` script as well.
 
-Then you can git init or whatever in that directory, and your files will be located
-there!
+## Build and download
 
-## Configuration
+You can build package at any time by opening `http://dev.site.com/Extras/anyOtherName/_build/build.php`
 
-Now, you'll want to change references to modExtra in the files in your
-new copied-from-modExtra repo to whatever name of your new Extra will be. Once
-you've done that, you can create some System Settings:
+If you want to download built package - just add `?download=1` to the address.
 
-- 'mynamespace.core_path' - Point to /path/to/my/extra/core/components/extra/
-- 'mynamespace.assets_url' - /path/to/my/extra/assets/components/extra/
+## Example deploy settings
 
-Then clear the cache. This will tell the Extra to look for the files located
-in these directories, allowing you to develop outside of the MODx webroot!
-
-## Information
-
-Note that if you git archive from this repository, you may not need all of its
-functionality. This Extra contains files and the setup to do the following:
-
-- Integrates a custom table of "Items"
-- A snippet listing Items sorted by name and templated with a chunk
-- A custom manager page to manage Items on
-
-If you do not require all of this functionality, simply remove it and change the
-appropriate code.
-
-Also, you'll want to change all the references of 'modExtra' to whatever the
-name of your component is.
-
-## Copyright Information
-
-modExtra is distributed as GPL (as MODx Revolution is), but the copyright owner
-(Shaun McCormick) grants all users of modExtra the ability to modify, distribute
-and use modExtra in MODx development as they see fit, as long as attribution
-is given somewhere in the distributed source of all derivative works.
+[![](https://file.modx.pro/files/3/a/b/3ab2753b9e8b6c09a4ca0da819db37b6s.jpg)](https://file.modx.pro/files/3/a/b/3ab2753b9e8b6c09a4ca0da819db37b6.png) [![](https://file.modx.pro/files/c/1/a/c1afbb8988ab358a0b400cdcdb0391d4s.jpg)](https://file.modx.pro/files/c/1/a/c1afbb8988ab358a0b400cdcdb0391d4.png)

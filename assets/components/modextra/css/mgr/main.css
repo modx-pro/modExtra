@@ -1,6 +1,7 @@
 /* Grid */
-.modextra-grid-row-disabled { font-style: italic; opacity: .6; color: #555; }
+.modextra-modextra-row-disabled { font-style: italic; opacity: .6; color: #555; }
 .x-grid3-col-actions { padding: 3px 0 3px 5px; }
+
 /* Actions */
 .action-red { color: darkred !important; }
 .action-green { color: darkgreen !important; }
@@ -9,7 +10,8 @@
 .action-gray { color: dimgray !important; }
 ul.modextra-row-actions { margin: 0; padding: 0; list-style: none; }
 ul.modextra-row-actions li { float: left; }
-ul.modextra-row-actions .btn { padding: 5px; margin-right: 2px; min-width: 26px; font-size: inherit; }
+ul.modextra-row-actions .modextra-btn { padding: 5px; margin-right: 2px; min-width: 26px; font-size: inherit; }
+
 /* Action menu */
 a.x-menu-item .x-menu-item-text, a.x-menu-item .x-menu-item-text .icon { cursor: pointer; }
 a.x-menu-item .x-menu-item-text .icon { line-height: 16px; top: auto; }
@@ -17,6 +19,7 @@ a.x-menu-item .x-menu-item-text .icon { line-height: 16px; top: auto; }
 .x-menu-list-item:hover .icon { color: inherit !important; }
 ul.modextra-row-actions .actions-menu { width: 40px; }
 ul.modextra-row-actions .actions-menu:after { content: " \f107"; }
+
 /* Search field */
 .x-field-search-clear,
 .x-field-search-go { border-left: 1px solid #e4e4e4 !important; }
@@ -25,3 +28,69 @@ ul.modextra-row-actions .actions-menu:after { content: " \f107"; }
 .x-field-search-clear:before { content: '\f00d' !important; }
 .x-field-search-go { right: 31px !important; border-radius: 0 !important; }
 .x-field-search-go:before { content: '\f002' !important; }
+
+/* Buttons */
+.modextra-btn { display: inline-block; margin-bottom: 0; font-weight: normal; text-align: center; vertical-align: middle; -ms-touch-action: manipulation; touch-action: manipulation; cursor: pointer; background-image: none; border: 1px solid transparent; white-space: nowrap; padding: 6px 12px; font-size: 14px; line-height: 1.42857143; border-radius: 4px; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none }
+.modextra-btn:focus, .modextra-btn:active:focus, .modextra-btn.active:focus, .modextra-btn.focus, .modextra-btn:active.focus, .modextra-btn.active.focus { outline: thin dotted; outline: 5px auto -webkit-focus-ring-color; outline-offset: -2px }
+.modextra-btn:hover, .modextra-btn:focus, .modextra-btn.focus { color: #333; text-decoration: none }
+.modextra-btn:active, .modextra-btn.active { outline: 0; background-image: none; -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125); box-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125) }
+.modextra-btn.disabled, .modextra-btn[disabled], fieldset[disabled] .modextra-btn { cursor: not-allowed; opacity: .65; filter: alpha(opacity=65); -webkit-box-shadow: none; box-shadow: none }
+a.modextra-btn.disabled, fieldset[disabled] a.modextra-btn { pointer-events: none }
+.modextra-btn-default { color: #333; background-color: #fff; border-color: #ccc }
+.modextra-btn-default:focus, .modextra-btn-default.focus { color: #333; background-color: #e6e6e6; border-color: #8c8c8c }
+.modextra-btn-default:hover { color: #333; background-color: #e6e6e6; border-color: #adadad }
+.modextra-btn-default:active, .modextra-btn-default.active, .open > .dropdown-toggle.modextra-btn-default { color: #333; background-color: #e6e6e6; border-color: #adadad }
+.modextra-btn-default:active:hover, .modextra-btn-default.active:hover, .open > .dropdown-toggle.modextra-btn-default:hover, .modextra-btn-default:active:focus, .modextra-btn-default.active:focus, .open > .dropdown-toggle.modextra-btn-default:focus, .modextra-btn-default:active.focus, .modextra-btn-default.active.focus, .open > .dropdown-toggle.modextra-btn-default.focus { color: #333; background-color: #d4d4d4; border-color: #8c8c8c }
+.modextra-btn-default:active, .modextra-btn-default.active, .open > .dropdown-toggle.modextra-btn-default { background-image: none }
+.modextra-btn-default.disabled:hover, .modextra-btn-default[disabled]:hover, fieldset[disabled] .modextra-btn-default:hover, .modextra-btn-default.disabled:focus, .modextra-btn-default[disabled]:focus, fieldset[disabled] .modextra-btn-default:focus, .modextra-btn-default.disabled.focus, .modextra-btn-default[disabled].focus, fieldset[disabled] .modextra-btn-default.focus { background-color: #fff; border-color: #ccc }
+.modextra-btn-default .badge { color: #fff; background-color: #333 }
+.modextra-btn-primary { color: #fff; background-color: #337ab7; border-color: #2e6da4 }
+.modextra-btn-primary:focus, .modextra-btn-primary.focus { color: #fff; background-color: #286090; border-color: #122b40 }
+.modextra-btn-primary:hover { color: #fff; background-color: #286090; border-color: #204d74 }
+.modextra-btn-primary:active, .modextra-btn-primary.active, .open > .dropdown-toggle.modextra-btn-primary { color: #fff; background-color: #286090; border-color: #204d74 }
+.modextra-btn-primary:active:hover, .modextra-btn-primary.active:hover, .open > .dropdown-toggle.modextra-btn-primary:hover, .modextra-btn-primary:active:focus, .modextra-btn-primary.active:focus, .open > .dropdown-toggle.modextra-btn-primary:focus, .modextra-btn-primary:active.focus, .modextra-btn-primary.active.focus, .open > .dropdown-toggle.modextra-btn-primary.focus { color: #fff; background-color: #204d74; border-color: #122b40 }
+.modextra-btn-primary:active, .modextra-btn-primary.active, .open > .dropdown-toggle.modextra-btn-primary { background-image: none }
+.modextra-btn-primary.disabled:hover, .modextra-btn-primary[disabled]:hover, fieldset[disabled] .modextra-btn-primary:hover, .modextra-btn-primary.disabled:focus, .modextra-btn-primary[disabled]:focus, fieldset[disabled] .modextra-btn-primary:focus, .modextra-btn-primary.disabled.focus, .modextra-btn-primary[disabled].focus, fieldset[disabled] .modextra-btn-primary.focus { background-color: #337ab7; border-color: #2e6da4 }
+.modextra-btn-primary .badge { color: #337ab7; background-color: #fff }
+.modextra-btn-success { color: #fff; background-color: #5cb85c; border-color: #4cae4c }
+.modextra-btn-success:focus, .modextra-btn-success.focus { color: #fff; background-color: #449d44; border-color: #255625 }
+.modextra-btn-success:hover { color: #fff; background-color: #449d44; border-color: #398439 }
+.modextra-btn-success:active, .modextra-btn-success.active, .open > .dropdown-toggle.modextra-btn-success { color: #fff; background-color: #449d44; border-color: #398439 }
+.modextra-btn-success:active:hover, .modextra-btn-success.active:hover, .open > .dropdown-toggle.modextra-btn-success:hover, .modextra-btn-success:active:focus, .modextra-btn-success.active:focus, .open > .dropdown-toggle.modextra-btn-success:focus, .modextra-btn-success:active.focus, .modextra-btn-success.active.focus, .open > .dropdown-toggle.modextra-btn-success.focus { color: #fff; background-color: #398439; border-color: #255625 }
+.modextra-btn-success:active, .modextra-btn-success.active, .open > .dropdown-toggle.modextra-btn-success { background-image: none }
+.modextra-btn-success.disabled:hover, .modextra-btn-success[disabled]:hover, fieldset[disabled] .modextra-btn-success:hover, .modextra-btn-success.disabled:focus, .modextra-btn-success[disabled]:focus, fieldset[disabled] .modextra-btn-success:focus, .modextra-btn-success.disabled.focus, .modextra-btn-success[disabled].focus, fieldset[disabled] .modextra-btn-success.focus { background-color: #5cb85c; border-color: #4cae4c }
+.modextra-btn-success .badge { color: #5cb85c; background-color: #fff }
+.modextra-btn-info { color: #fff; background-color: #5bc0de; border-color: #46b8da }
+.modextra-btn-info:focus, .modextra-btn-info.focus { color: #fff; background-color: #31b0d5; border-color: #1b6d85 }
+.modextra-btn-info:hover { color: #fff; background-color: #31b0d5; border-color: #269abc }
+.modextra-btn-info:active, .modextra-btn-info.active, .open > .dropdown-toggle.modextra-btn-info { color: #fff; background-color: #31b0d5; border-color: #269abc }
+.modextra-btn-info:active:hover, .modextra-btn-info.active:hover, .open > .dropdown-toggle.modextra-btn-info:hover, .modextra-btn-info:active:focus, .modextra-btn-info.active:focus, .open > .dropdown-toggle.modextra-btn-info:focus, .modextra-btn-info:active.focus, .modextra-btn-info.active.focus, .open > .dropdown-toggle.modextra-btn-info.focus { color: #fff; background-color: #269abc; border-color: #1b6d85 }
+.modextra-btn-info:active, .modextra-btn-info.active, .open > .dropdown-toggle.modextra-btn-info { background-image: none }
+.modextra-btn-info.disabled:hover, .modextra-btn-info[disabled]:hover, fieldset[disabled] .modextra-btn-info:hover, .modextra-btn-info.disabled:focus, .modextra-btn-info[disabled]:focus, fieldset[disabled] .modextra-btn-info:focus, .modextra-btn-info.disabled.focus, .modextra-btn-info[disabled].focus, fieldset[disabled] .modextra-btn-info.focus { background-color: #5bc0de; border-color: #46b8da }
+.modextra-btn-info .badge { color: #5bc0de; background-color: #fff }
+.modextra-btn-warning { color: #fff; background-color: #f0ad4e; border-color: #eea236 }
+.modextra-btn-warning:focus, .modextra-btn-warning.focus { color: #fff; background-color: #ec971f; border-color: #985f0d }
+.modextra-btn-warning:hover { color: #fff; background-color: #ec971f; border-color: #d58512 }
+.modextra-btn-warning:active, .modextra-btn-warning.active, .open > .dropdown-toggle.modextra-btn-warning { color: #fff; background-color: #ec971f; border-color: #d58512 }
+.modextra-btn-warning:active:hover, .modextra-btn-warning.active:hover, .open > .dropdown-toggle.modextra-btn-warning:hover, .modextra-btn-warning:active:focus, .modextra-btn-warning.active:focus, .open > .dropdown-toggle.modextra-btn-warning:focus, .modextra-btn-warning:active.focus, .modextra-btn-warning.active.focus, .open > .dropdown-toggle.modextra-btn-warning.focus { color: #fff; background-color: #d58512; border-color: #985f0d }
+.modextra-btn-warning:active, .modextra-btn-warning.active, .open > .dropdown-toggle.modextra-btn-warning { background-image: none }
+.modextra-btn-warning.disabled:hover, .modextra-btn-warning[disabled]:hover, fieldset[disabled] .modextra-btn-warning:hover, .modextra-btn-warning.disabled:focus, .modextra-btn-warning[disabled]:focus, fieldset[disabled] .modextra-btn-warning:focus, .modextra-btn-warning.disabled.focus, .modextra-btn-warning[disabled].focus, fieldset[disabled] .modextra-btn-warning.focus { background-color: #f0ad4e; border-color: #eea236 }
+.modextra-btn-warning .badge { color: #f0ad4e; background-color: #fff }
+.modextra-btn-danger { color: #fff; background-color: #d9534f; border-color: #d43f3a }
+.modextra-btn-danger:focus, .modextra-btn-danger.focus { color: #fff; background-color: #c9302c; border-color: #761c19 }
+.modextra-btn-danger:hover { color: #fff; background-color: #c9302c; border-color: #ac2925 }
+.modextra-btn-danger:active, .modextra-btn-danger.active, .open > .dropdown-toggle.modextra-btn-danger { color: #fff; background-color: #c9302c; border-color: #ac2925 }
+.modextra-btn-danger:active:hover, .modextra-btn-danger.active:hover, .open > .dropdown-toggle.modextra-btn-danger:hover, .modextra-btn-danger:active:focus, .modextra-btn-danger.active:focus, .open > .dropdown-toggle.modextra-btn-danger:focus, .modextra-btn-danger:active.focus, .modextra-btn-danger.active.focus, .open > .dropdown-toggle.modextra-btn-danger.focus { color: #fff; background-color: #ac2925; border-color: #761c19 }
+.modextra-btn-danger:active, .modextra-btn-danger.active, .open > .dropdown-toggle.modextra-btn-danger { background-image: none }
+.modextra-btn-danger.disabled:hover, .modextra-btn-danger[disabled]:hover, fieldset[disabled] .modextra-btn-danger:hover, .modextra-btn-danger.disabled:focus, .modextra-btn-danger[disabled]:focus, fieldset[disabled] .modextra-btn-danger:focus, .modextra-btn-danger.disabled.focus, .modextra-btn-danger[disabled].focus, fieldset[disabled] .modextra-btn-danger.focus { background-color: #d9534f; border-color: #d43f3a }
+.modextra-btn-danger .badge { color: #d9534f; background-color: #fff }
+.modextra-btn-link { color: #337ab7; font-weight: normal; border-radius: 0 }
+.modextra-btn-link, .modextra-btn-link:active, .modextra-btn-link.active, .modextra-btn-link[disabled], fieldset[disabled] .modextra-btn-link { background-color: transparent; -webkit-box-shadow: none; box-shadow: none }
+.modextra-btn-link, .modextra-btn-link:hover, .modextra-btn-link:focus, .modextra-btn-link:active { border-color: transparent }
+.modextra-btn-link:hover, .modextra-btn-link:focus { color: #23527c; text-decoration: underline; background-color: transparent }
+.modextra-btn-link[disabled]:hover, fieldset[disabled] .modextra-btn-link:hover, .modextra-btn-link[disabled]:focus, fieldset[disabled] .modextra-btn-link:focus { color: #777; text-decoration: none }
+.modextra-btn-lg { padding: 10px 16px; font-size: 18px; line-height: 1.3333333; border-radius: 6px }
+.modextra-btn-sm { padding: 5px 10px; font-size: 12px; line-height: 1.5; border-radius: 3px }
+.modextra-btn-xs { padding: 1px 5px; font-size: 12px; line-height: 1.5; border-radius: 3px }
+.modextra-btn-block { display: block; width: 100% }
+.modextra-btn-block + .modextra-btn-block { margin-top: 5px }

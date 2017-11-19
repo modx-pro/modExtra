@@ -53,7 +53,6 @@ class modExtraHomeManagerController extends modExtraManagerController
     public function loadCustomCssJs()
     {
         $this->addCss($this->modExtra->config['cssUrl'] . 'mgr/main.css');
-        $this->addCss($this->modExtra->config['cssUrl'] . 'mgr/bootstrap.buttons.css');
         $this->addJavascript($this->modExtra->config['jsUrl'] . 'mgr/modextra.js');
         $this->addJavascript($this->modExtra->config['jsUrl'] . 'mgr/misc/utils.js');
         $this->addJavascript($this->modExtra->config['jsUrl'] . 'mgr/misc/combo.js');
@@ -75,6 +74,8 @@ class modExtraHomeManagerController extends modExtraManagerController
      */
     public function getTemplateFile()
     {
-        return $this->modExtra->config['templatesPath'] . 'home.tpl';
+        $this->content .= '<div id="modextra-panel-home-div"></div>';
+
+        return '';
     }
 }

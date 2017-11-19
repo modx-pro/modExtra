@@ -18,6 +18,7 @@ $toPlaceholder = $modx->getOption('toPlaceholder', $scriptProperties, false);
 // Build query
 $c = $modx->newQuery('modExtraItem');
 $c->sortby($sortby, $sortdir);
+$c->where(['active' => 1]);
 $c->limit($limit);
 $items = $modx->getIterator('modExtraItem', $c);
 

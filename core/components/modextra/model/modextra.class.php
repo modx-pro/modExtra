@@ -13,29 +13,17 @@ class modExtra
     function __construct(modX &$modx, array $config = [])
     {
         $this->modx =& $modx;
-
-        $corePath = $this->modx->getOption('modextra_core_path', $config,
-            $this->modx->getOption('core_path') . 'components/modextra/'
-        );
-        $assetsUrl = $this->modx->getOption('modextra_assets_url', $config,
-            $this->modx->getOption('assets_url') . 'components/modextra/'
-        );
-        $connectorUrl = $assetsUrl . 'connector.php';
+        $corePath = MODX_CORE_PATH . 'components/modextra/';
+        $assetsUrl = MODX_ASSETS_URL . 'components/modextra/';
 
         $this->config = array_merge([
+            'corePath' => $corePath,
+            'modelPath' => $corePath . 'model/',
+            'processorsPath' => $corePath . 'processors/',
+
             'assetsUrl' => $assetsUrl,
             'cssUrl' => $assetsUrl . 'css/',
             'jsUrl' => $assetsUrl . 'js/',
-            'imagesUrl' => $assetsUrl . 'images/',
-            'connectorUrl' => $connectorUrl,
-
-            'corePath' => $corePath,
-            'modelPath' => $corePath . 'model/',
-            'chunksPath' => $corePath . 'elements/chunks/',
-            'templatesPath' => $corePath . 'elements/templates/',
-            'chunkSuffix' => '.chunk.tpl',
-            'snippetsPath' => $corePath . 'elements/snippets/',
-            'processorsPath' => $corePath . 'processors/',
         ], $config);
 
         $this->modx->addPackage('modextra', $this->config['modelPath']);

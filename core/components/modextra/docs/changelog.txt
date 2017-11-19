@@ -2,6 +2,7 @@ Changelog for modExtra.
 
 2.0.0-pl
 ==============
+- New build script.
 - [#4] Ability to specify the exact repository to install package from.
 - [#6] Renaming script works in any environment.
 - Updated tables resolver.

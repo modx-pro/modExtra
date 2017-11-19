@@ -4,7 +4,7 @@ class modExtraOfficeItemRemoveProcessor extends modObjectProcessor
 {
     public $objectType = 'modExtraItem';
     public $classKey = 'modExtraItem';
-    public $languageTopics = array('modextra');
+    public $languageTopics = ['modextra'];
     //public $permission = 'remove';
 
 
