@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<model package="modextra" baseClass="xPDOObject" platform="mysql" defaultEngine="MyISAM" phpdoc-package="modextra"
-       version="1.1">
+<model package="modextra" baseClass="xPDOObject" platform="mysql" defaultEngine="InnoDB" phpdoc-package="modextra" version="1.1">
 
     <object class="modExtraItem" table="modextra_items" extends="xPDOSimpleObject">
         <field key="name" dbtype="varchar" precision="100" phptype="string" null="false" default=""/>

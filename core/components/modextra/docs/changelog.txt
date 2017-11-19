@@ -4,6 +4,8 @@ Changelog for modExtra.
 ==============
 - [#4] Ability to specify the exact repository to install package from.
 - [#6] Renaming script works in any environment.
+- Updated tables resolver.
+- All tables now InnoDB by default.
 - Removed shell renaming script.
 
 1.0.1-beta
