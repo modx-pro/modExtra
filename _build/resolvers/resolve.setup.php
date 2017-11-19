@@ -1,23 +1,26 @@
 <?php
 
 if (!function_exists('installPackage')) {
-    function installPackage($packageName)
+    function installPackage($packageName, $options = [])
     {
         global $modx;
 
         /** @var modTransportProvider $provider */
-        if (!$provider = $modx->getObject('transport.modTransportProvider',
-            array('service_url:LIKE' => '%simpledream.ru%', 'OR:service_url:LIKE' => '%modstore.pro%'))
-        ) {
+        if (!empty($options['service_url'])) {
+            $provider = $modx->getObject('transport.modTransportProvider', [
+                'service_url:LIKE' => '%' . $options['service_url'] . '%',
+            ]);
+        }
+        if (empty($provider)) {
             $provider = $modx->getObject('transport.modTransportProvider', 1);
         }
         $modx->getVersionData();
         $productVersion = $modx->version['code_name'] . '-' . $modx->version['full_version'];
 
-        $response = $provider->request('package', 'GET', array(
+        $response = $provider->request('package', 'GET', [
             'supports' => $productVersion,
             'query' => $packageName,
-        ));
+        ]);
 
         if (!empty($response)) {
             $foundPackages = simplexml_load_string($response->response);
@@ -33,10 +36,10 @@ if (!function_exists('installPackage')) {
                     if (!downloadPackage($url,
                         $modx->getOption('core_path') . 'packages/' . $foundPackage->signature . '.transport.zip')
                     ) {
-                        return array(
+                        return [
                             'success' => 0,
                             'message' => "Could not download package <b>{$packageName}</b>.",
-                        );
+                        ];
                     }
 
                     // Add in the package as an object so it can be upgraded
@@ -44,18 +47,18 @@ if (!function_exists('installPackage')) {
                     $package = $modx->newObject('transport.modTransportPackage');
                     $package->set('signature', $foundPackage->signature);
                     /** @noinspection PhpUndefinedFieldInspection */
-                    $package->fromArray(array(
+                    $package->fromArray([
                         'created' => date('Y-m-d h:i:s'),
                         'updated' => null,
                         'state' => 1,
                         'workspace' => 1,
-                        'provider' => $provider->id,
+                        'provider' => $provider->get('id'),
                         'source' => $foundPackage->signature . '.transport.zip',
                         'package_name' => $packageName,
                         'version_major' => $versionSignature[0],
                         'version_minor' => !empty($versionSignature[1]) ? $versionSignature[1] : 0,
                         'version_patch' => !empty($versionSignature[2]) ? $versionSignature[2] : 0,
-                    ));
+                    ]);
 
                     if (!empty($sig[2])) {
                         $r = preg_split('/([0-9]+)/', $sig[2], -1, PREG_SPLIT_DELIM_CAPTURE);
@@ -68,24 +71,24 @@ if (!function_exists('installPackage')) {
                     }
 
                     if ($package->save() && $package->install()) {
-                        return array(
+                        return [
                             'success' => 1,
                             'message' => "<b>{$packageName}</b> was successfully installed",
-                        );
+                        ];
                     } else {
-                        return array(
+                        return [
                             'success' => 0,
                             'message' => "Could not save package <b>{$packageName}</b>",
-                        );
+                        ];
                     }
                     break;
                 }
             }
         } else {
-            return array(
+            return [
                 'success' => 0,
                 'message' => "Could not find <b>{$packageName}</b> in MODX repository",
-            );
+            ];
         }
 
         return true;
@@ -123,9 +126,16 @@ if (!function_exists('downloadPackage')) {
     }
 }
 
-$packages = array(
-    'pdoTools' => '2.5.0-pl',
-);
+$packages = [
+    'Ace' => [
+        'version' => '1.6.5-pl',
+        'service_url' => 'modstore.pro',
+    ],
+    'pdoTools' => [
+        'version' => '2.10.0-pl',
+        'service_url' => 'modstore.pro',
+    ],
+];
 $success = false;
 
 /** @var xPDOTransport $transport */
@@ -136,16 +146,19 @@ if ($transport->xpdo) {
     switch ($options[xPDOTransport::PACKAGE_ACTION]) {
         case xPDOTransport::ACTION_INSTALL:
         case xPDOTransport::ACTION_UPGRADE:
-            foreach ($packages as $name => $version) {
-                $installed = $modx->getIterator('transport.modTransportPackage', array('package_name' => $name));
+            foreach ($packages as $name => $options) {
+                if (!is_array($options)) {
+                    $options = ['version' => $options];
+                }
+                $installed = $modx->getIterator('transport.modTransportPackage', ['package_name' => $name]);
                 /** @var modTransportPackage $package */
                 foreach ($installed as $package) {
-                    if ($package->compareVersion($version, '<=')) {
+                    if ($package->compareVersion($options['version'], '<=')) {
                         continue(2);
                     }
                 }
                 $modx->log(modX::LOG_LEVEL_INFO, "Trying to install <b>{$name}</b>. Please wait...");
-                $response = installPackage($name);
+                $response = installPackage($name, $options);
                 $level = $response['success']
                     ? modX::LOG_LEVEL_INFO
                     : modX::LOG_LEVEL_ERROR;
