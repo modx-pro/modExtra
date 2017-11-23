@@ -21,6 +21,7 @@ class modExtra
             'modelPath' => $corePath . 'model/',
             'processorsPath' => $corePath . 'processors/',
 
+            'connectorUrl' => $assetsUrl . 'connector.php',
             'assetsUrl' => $assetsUrl,
             'cssUrl' => $assetsUrl . 'css/',
             'jsUrl' => $assetsUrl . 'js/',
