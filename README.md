@@ -6,7 +6,7 @@
 
 * You need to rename it to `anyOtherName` your package, so enter into SSH console and run
 ```
-php ~/www/Extras/modExtra/rename.php anyOtherName
+php ~/www/Extras/modExtra/rename_it.php anyOtherName
 ```
 *path on your site may differs*
 
