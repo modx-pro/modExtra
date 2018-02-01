@@ -4,7 +4,7 @@
 
     <object class="modExtraItem" table="modextra_items" extends="xPDOSimpleObject">
         <field key="name" dbtype="varchar" precision="100" phptype="string" null="false" default=""/>
-        <field key="description" dbtype="text" phptype="text" null="true" default=""/>
+        <field key="description" dbtype="text" phptype="string" null="true" default=""/>
         <field key="active" dbtype="tinyint" precision="1" phptype="boolean" null="true" default="1"/>
 
         <index alias="name" name="name" primary="false" unique="false" type="BTREE">
