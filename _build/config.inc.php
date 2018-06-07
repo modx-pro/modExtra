@@ -1,12 +1,7 @@
 <?php
 
-if (!defined('MODX_CORE_PATH')) {
-    $path = dirname(__FILE__);
-    while (!file_exists($path . '/core/config/config.inc.php') && (strlen($path) > 1)) {
-        $path = dirname($path);
-    }
-    define('MODX_CORE_PATH', $path . '/core/');
-}
+$root = $_SERVER['DOCUMENT_ROOT'];
+include_once $root.'/config.core.php';
 
 return [
     'name' => 'modExtra',
