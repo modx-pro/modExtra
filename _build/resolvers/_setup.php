@@ -40,9 +40,9 @@ $downloadPackage = function ($src, $dst) {
             return false;
         }
     }
-    file_put_contents($dst, $file);
+    if( empty($file) ) return false;
 
-    return file_exists($dst);
+    return file_put_contents($dst, $file) == false ? false : true;
 };
 
 $installPackage = function ($packageName, $options = []) use ($modx, $downloadPackage) {
