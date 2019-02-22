@@ -82,7 +82,8 @@ class modExtraPackage
      */
     protected function model()
     {
-        if (empty($this->config['core'] . 'model/schema/' . $this->config['name_lower'] . '.mysql.schema.xml')) {
+        $model_file = $this->config['core'] . 'model/schema/' . $this->config['name_lower'] . '.mysql.schema.xml';
+        if (!file_exists($model_file) || empty(file_get_contents($model_file))) {
             return;
         }
         /** @var xPDOCacheManager $cache */
