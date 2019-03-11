@@ -27,7 +27,7 @@ $xpdo_meta_map['modExtraItem']= array (
     'description' => 
     array (
       'dbtype' => 'text',
-      'phptype' => 'text',
+      'phptype' => 'string',
       'null' => true,
       'default' => '',
     ),
