@@ -19,7 +19,10 @@ return [
     'update' => [
         'chunks' => false,
         'menus' => true,
+        'permission' => true,
         'plugins' => true,
+        'policies' => true,
+        'policy_templates' => true,
         'resources' => false,
         'settings' => false,
         'snippets' => true,
