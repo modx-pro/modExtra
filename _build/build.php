@@ -555,6 +555,38 @@ class modExtraPackage
 
 
     /**
+     * Add categories
+     */
+    protected function categories()
+    {
+        /** @noinspection PhpIncludeInspection */
+        $categories = include($this->config['elements'] . 'categories.php');
+        if (!is_array($categories)) {
+            $this->modx->log(modX::LOG_LEVEL_ERROR, 'Could not package in Categories');
+
+            return;
+        }
+        $this->category_attributes[xPDOTransport::RELATED_OBJECT_ATTRIBUTES]['Children'] = [
+            xPDOTransport::UNIQUE_KEY => 'category',
+            xPDOTransport::PRESERVE_KEYS => false,
+            xPDOTransport::UPDATE_OBJECT => !empty($this->config['update']['categories']),
+            xPDOTransport::RELATED_OBJECTS => true,
+            xPDOTransport::RELATED_OBJECT_ATTRIBUTES => [],
+        ];
+        $objects = [];
+        foreach ($categories as $name => $data) {
+            /** @var modCategory[] $objects */
+            $objects[$name] = $this->modx->newObject('modCategory');
+            $objects[$name]->fromArray(array_merge([
+                'category' => $name,
+            ], $data), '', true, true);
+        }
+        $this->category->addMany($objects, 'Children');
+        $this->modx->log(modX::LOG_LEVEL_INFO, 'Packaged in ' . count($objects) . ' Categories');
+    }
+
+
+    /**
      * @param $filename
      *
      * @return string
