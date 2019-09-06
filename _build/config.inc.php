@@ -17,6 +17,7 @@ return [
     'install' => true,
     // Which elements should be updated on package upgrade
     'update' => [
+        'categories' => true,
         'chunks' => false,
         'menus' => true,
         'permission' => true,
