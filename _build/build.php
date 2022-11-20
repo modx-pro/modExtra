@@ -664,7 +664,13 @@ class modExtraPackage
             $package->save();
         }
         if ($package->install()) {
-            $this->modx->runProcessor('system/clearcache');
+            $action = 'system/clearcache';
+
+            if ($this->modx->getVersionData()['version'] === 3) {
+                $action = 'System/ClearCache';
+            }
+
+            $this->modx->runProcessor($action);
         }
     }
 
