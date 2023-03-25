@@ -733,6 +733,12 @@ class modExtraPackage
             'changelog' => file_get_contents($this->config['core'] . 'docs/changelog.txt'),
             'license' => file_get_contents($this->config['core'] . 'docs/license.txt'),
             'readme' => file_get_contents($this->config['core'] . 'docs/readme.txt'),
+            'requires' => [
+                'php' => '>=7.0.0',
+                'modx' => '<3.0.0',
+                //'MIGX' => '>=1.0.0', //Example add package
+                //'translit' => '>=1.0.0-beta', //Example add package
+            ],
         ]);
         $this->modx->log(modX::LOG_LEVEL_INFO, 'Added package attributes and setup options.');
 
